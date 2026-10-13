@@ -580,3 +580,10 @@ footer p{color:var(--muted);font-size:.95rem}
   .duo-right .show-grid{padding:clamp(1.4rem,2.4vw,2.2rem);gap:1.2rem;border-radius:32px}
   .duo-right .show h2,.duo-right h2{font-size:clamp(1.8rem,2.8vw,2.5rem)}
 }
+
+/* Desktop: the slogan runs on one line under the logo, sized to fit the card */
+@media (min-width:861px){
+  .split-logo{container-type:inline-size}
+  .split-logo .slogan{white-space:nowrap;font-size:clamp(.65rem,6.6cqw,1.5rem);letter-spacing:0}
+  .split-logo .slogan .w{display:inline}
+}
