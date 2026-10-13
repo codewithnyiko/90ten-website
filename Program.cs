@@ -66,7 +66,7 @@ app.MapPost("/api/contact", async (ContactForm form, HttpContext http, ILogger<P
     reply.Body = new TextPart("plain")
     {
         Text = $"Hi {name},\n\nThank you for contacting 90Ten Group. We received your message and will reply within two working days.\n\n"
-             + $"What you sent us:\n{need}\n{msg}\n\nTailored. Engineered. Nurtured.\n90Ten Group\n6 Saddle Circle, Blue Hills, 1685 Midrand\n"
+             + $"What you sent us:\n{need}\n{msg}\n\nTailored. Engineered. Nurtured.\n90Ten Group\n6 Saddle Circle\nBlue Hills\n1685 Midrand\n"
     };
 
     try
