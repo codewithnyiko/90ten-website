@@ -594,3 +594,12 @@ footer p{color:var(--muted);font-size:.95rem}
   .split-logo{align-items:center;text-align:center;padding:48px 20px}
   .split-logo .slogan{text-align:center;align-self:center;justify-self:center;font-size:clamp(.7rem,6.2cqw,1.6rem)}
 }
+
+/* Phone: the logo sits next to the slogan, not far apart. Desktop: the first section is 20px taller */
+@media (max-width:860px){
+  .split-logo{justify-content:center;gap:16px}
+  .split-logo .slogan{text-align:left}
+}
+@media (min-width:861px){
+  .split{min-height:calc(30rem + 20px)}
+}
