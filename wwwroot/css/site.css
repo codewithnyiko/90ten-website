@@ -587,3 +587,10 @@ footer p{color:var(--muted);font-size:.95rem}
   .split-logo .slogan{white-space:nowrap;font-size:clamp(.65rem,6.6cqw,1.5rem);letter-spacing:0}
   .split-logo .slogan .w{display:inline}
 }
+
+/* Desktop: the logo and the slogan are centred in the dark card, with a bigger slogan */
+@media (min-width:861px){
+  .split{grid-template-columns:clamp(260px,24vw,360px) minmax(0,1fr) clamp(270px,25vw,340px)}
+  .split-logo{align-items:center;text-align:center;padding:48px 20px}
+  .split-logo .slogan{text-align:center;align-self:center;justify-self:center;font-size:clamp(.7rem,6.2cqw,1.6rem)}
+}
