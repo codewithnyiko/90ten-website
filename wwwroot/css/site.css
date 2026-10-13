@@ -558,3 +558,25 @@ footer p{color:var(--muted);font-size:.95rem}
 }
 
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* Who we are and the apps box sit side by side on a desktop */
+.duo-right{margin-top:clamp(2.4rem,5vw,3.2rem)}
+.duo-right .show-grid{display:grid;grid-template-columns:1fr;gap:1.6rem;align-items:start}
+@media (min-width:861px){
+  .duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4.5vw,5rem);align-items:start}
+  .duo-right{margin-top:0}
+  .duo-left .tl-head{grid-template-columns:1fr;gap:1.1rem}
+  .duo-left .tl{grid-template-columns:1fr;margin-top:clamp(1.8rem,3vw,2.6rem)}
+  .duo-left .tl::before{display:none}
+  .duo-left .tl li{padding:0 0 2.2rem 4.2rem;min-height:2.8rem;padding-right:0}
+  .duo-left .tl li::before{content:"";position:absolute;left:1.35rem;top:1.4rem;bottom:-1.4rem;width:3px;background:var(--black)}
+  .duo-left .tl li:last-child{text-align:left;padding:0 0 0 4.2rem}
+  .duo-left .tl li:last-child::before{display:none}
+  .duo-left .tl li:last-child .tn{left:0;right:auto}
+  .duo-left .tl li:last-child>span:last-child{margin-left:0}
+  .duo-left .tl .tn{z-index:1}
+}
+@media (min-width:861px){
+  .duo-right .show-grid{padding:clamp(1.4rem,2.4vw,2.2rem);gap:1.2rem;border-radius:32px}
+  .duo-right .show h2,.duo-right h2{font-size:clamp(1.8rem,2.8vw,2.5rem)}
+}
