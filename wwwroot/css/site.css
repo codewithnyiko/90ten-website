@@ -621,3 +621,17 @@ footer p{color:var(--muted);font-size:.95rem}
 
 /* The words slide in without changing width, so the logo beside them stays still */
 @keyframes wordin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* The slogan repeats its whole entrance every few seconds: the words slide up, the T, E and N hop and turn red, they pulse, fade, and start again */
+@keyframes wordloop{0%{opacity:0;transform:translateY(14px)}9%{opacity:1;transform:none}80%{opacity:1;transform:none}90%{opacity:0;transform:translateY(-10px)}100%{opacity:0;transform:translateY(14px)}}
+@keyframes letterloop{0%,9%{color:#fff;transform:none}15%{color:#FF5C54;transform:translateY(-7px)}21%,55%{color:#FF5C54;transform:none}61%{color:#FF5C54;transform:scale(1.28)}67%{color:#FF5C54;transform:none}100%{color:#FF5C54;transform:none}}
+.slogan .w{animation:wordloop 9s var(--ease) infinite both}
+.slogan b{animation:letterloop 9s ease-in-out infinite both}
+.slogan .w:nth-child(1){animation-delay:.5s}.slogan .w:nth-child(2){animation-delay:1.3s}.slogan .w:nth-child(3){animation-delay:2.1s}
+.slogan .w:nth-child(1) b{animation-delay:1s}.slogan .w:nth-child(2) b{animation-delay:1.8s}.slogan .w:nth-child(3) b{animation-delay:2.6s}
+@media (prefers-reduced-motion:reduce){
+  .slogan .w{animation:wordloop 9s var(--ease) infinite both!important}
+  .slogan b{animation:letterloop 9s ease-in-out infinite both!important}
+  .slogan .w:nth-child(1){animation-delay:.5s!important}.slogan .w:nth-child(2){animation-delay:1.3s!important}.slogan .w:nth-child(3){animation-delay:2.1s!important}
+  .slogan .w:nth-child(1) b{animation-delay:1s!important}.slogan .w:nth-child(2) b{animation-delay:1.8s!important}.slogan .w:nth-child(3) b{animation-delay:2.6s!important}
+}
