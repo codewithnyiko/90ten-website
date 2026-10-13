@@ -531,7 +531,7 @@ footer p{color:var(--muted);font-size:.95rem}
 
 /* Desktop first screen: two cards (grey logo card, light message card) and the menu on white */
 @media (min-width:861px){
-  .split{display:grid;grid-template-columns:clamp(240px,24vw,360px) minmax(0,1fr) clamp(270px,25vw,340px);grid-template-rows:1fr auto auto 1fr;grid-template-areas:none;column-gap:24px;row-gap:0;min-height:min(88vh,46rem);max-width:1500px;margin-inline:auto;background:#fff;padding:34px clamp(24px,3.5vw,56px);position:relative}
+  .split{display:grid;grid-template-columns:clamp(240px,24vw,360px) minmax(0,1fr) clamp(270px,25vw,340px);grid-template-rows:1fr auto auto 1fr;grid-template-areas:none;column-gap:24px;row-gap:0;min-height:30rem;max-width:1500px;margin-inline:auto;background:#fff;padding:34px clamp(24px,3.5vw,56px);position:relative}
   .split::before{display:none}
   .split-logo{grid-column:1;grid-row:1 / 5;position:relative;z-index:auto;background:#2D2D30;border-radius:28px;clip-path:none;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:clamp(2rem,3.4vw,3rem);padding:48px 20px;text-align:center}
   .split-logo::before,.split-logo::after,.split-logo .wave{display:none}
