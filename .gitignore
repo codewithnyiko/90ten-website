@@ -1,0 +1,6 @@
+bin/
+obj/
+App_Data/
+run.log
+appsettings.Production.json
+appsettings.Local.json
