@@ -48,7 +48,7 @@ a{color:inherit}
 .slogan .w:nth-child(3) b{animation-delay:2.6s,5.6s}
 @keyframes wordin{from{opacity:0;transform:translateY(16px);letter-spacing:.2em}to{opacity:1;transform:none;letter-spacing:inherit}}
 @keyframes tenpulse{0%,70%,100%{transform:scale(1)}85%{transform:scale(1.28)}}
-@keyframes letter{0%{color:#fff;transform:translateY(0)}45%{transform:translateY(-6px)}100%{color:#FF5C54;transform:translateY(0)}}
+@keyframes letter{0%{color:#fff;transform:translateY(0)}45%{transform:translateY(-6px)}100%{color:#B33432;transform:translateY(0)}}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .split-menu{display:flex;flex-direction:column;justify-content:center;padding:clamp(2rem,5vw,5rem) clamp(1.4rem,5vw,5rem) clamp(2rem,5vw,5rem) clamp(1.4rem,3vw,3rem)}
 
@@ -349,7 +349,7 @@ footer .foot-slogan b{color:var(--ink)}
 @media (max-width:560px){.two,.stats,.svc{grid-template-columns:1fr}.row:first-child{grid-column:auto}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .slogan b{color:#FF5C54}
+  .slogan b{color:#B33432}
   .wave{display:none}
   .rv{transform:none}
   .track{width:auto;flex-wrap:wrap}
@@ -483,9 +483,11 @@ footer .foot-slogan b{color:var(--ink)}
 @media (max-width:860px){
   .tl-head{grid-template-columns:1fr}
   .tl{grid-template-columns:1fr;gap:1.8rem;padding-left:0}
-  .tl::before{left:1.35rem;right:auto;top:0;bottom:0;width:3px;height:auto}
+  .tl::before{display:none}
   .tl li,.tl li:last-child{padding:0 0 0 4.2rem;text-align:left}
-  .tl .tn,.tl li:last-child .tn{left:0;right:auto;top:0}
+  .tl li::before{content:"";position:absolute;left:1.4rem;top:0;bottom:-1.8rem;width:3px;margin-left:-1.5px;background:var(--black)}
+  .tl li:last-child::before{display:none}
+  .tl .tn,.tl li:last-child .tn{left:0;right:auto;top:0;z-index:1}
   .tl li:last-child>span:last-child{margin-left:0}
 }
 
