@@ -8,7 +8,18 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 WebApplication app = builder.Build();
 
 app.UseDefaultFiles();
-app.UseStaticFiles();
+// The page must be re-checked on every visit so phones pick up updates; css and js are versioned (?v=).
+app.UseStaticFiles(new StaticFileOptions
+{
+    OnPrepareResponse = ctx =>
+    {
+        string path = ctx.File.Name;
+        if (path.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
+        {
+            ctx.Context.Response.Headers["Cache-Control"] = "no-cache";
+        }
+    }
+});
 
 IConfigurationSection cfg = app.Configuration.GetSection("Contact");
 ConcurrentDictionary<string, List<DateTime>> sent = new();
