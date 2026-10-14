@@ -1,0 +1,13 @@
+/* 90Ten Group marketing pieces: charcoal, white, brand red on the T, E, N. Logo: wwwroot/img/logo-dark.png */
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap");
+:root{--char:#2d2d30;--char2:#38393d;--white:#fff;--muted:#b9b9c0;--red:#ff5c54;--paper:#f7f7f8;--ink:#161618}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Jost","Segoe UI",system-ui,sans-serif;color:var(--white);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.logo{background:url(../../wwwroot/img/logo-dark.png) center/contain no-repeat;aspect-ratio:1.137;flex:none}
+.rule{width:3px;align-self:stretch;background:rgba(255,255,255,.3);flex:none}
+.stack{display:flex;flex-direction:column;font-weight:500;letter-spacing:.03em;line-height:1.18}
+.stack b{color:var(--red);font-weight:700}
+.lockup{display:flex;align-items:center}
+.chip{background:#fff;border-radius:12px;padding:8px 14px;display:inline-block}
+.chip img{display:block;height:34px;width:auto}
