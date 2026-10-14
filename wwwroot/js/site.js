@@ -13,8 +13,8 @@
 var EMAILJS = {
   publicKey: 'PxZhbQn6j5TP6eKoA',
   serviceId: 'service_1yft1c9',
-  enquiryTemplate: 'template_w23sskl',  // goes to hello@90tengroup.co.za
-  confirmTemplate: 'template_xj6a478'   // goes to the visitor
+  enquiryTemplate: 'template_w23sskl'   // goes to hello@90tengroup.co.za
+  // Customer Confirmation (template_xj6a478) is linked as the Auto-Reply in EmailJS
 };
 function send(template, params) {
   return fetch('https://api.emailjs.com/api/v1.0/email/send', {
@@ -43,8 +43,8 @@ function send(template, params) {
       service: document.getElementById('f-need').value,
       message: msg || '(no message)'
     };
+    // One call only: the Web Contact template's Auto-Reply tab sends the Customer Confirmation.
     send(EMAILJS.enquiryTemplate, params)
-      .then(function () { return send(EMAILJS.confirmTemplate, params).catch(function () {}); })
       .then(function () { note.textContent = 'Thank you. We got your message and sent a confirmation to your email.'; form.reset(); })
       .catch(function () { note.textContent = 'We could not send that just now. Please email us at hello@90tengroup.co.za.'; })
       .then(function () { btn.disabled = false; });
