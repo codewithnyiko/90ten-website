@@ -8,7 +8,21 @@
   } else { els.forEach(function (el) { el.classList.add('in'); }); }
 })();
 
-// Contact form: sends the enquiry to the site and shows the answer
+// Contact form: sends the enquiry through EmailJS and shows the answer.
+// The public key is meant to be in the page. Never put the private key or a password here.
+var EMAILJS = {
+  publicKey: 'PxZhbQn6j5TP6eKoA',
+  serviceId: 'service_1yft1c9',
+  enquiryTemplate: 'template_w23sskl',  // goes to hello@90tengroup.co.za
+  confirmTemplate: 'template_xj6a478'   // goes to the visitor
+};
+function send(template, params) {
+  return fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ service_id: EMAILJS.serviceId, template_id: template, user_id: EMAILJS.publicKey, template_params: params })
+  }).then(function (r) { if (!r.ok) { throw new Error('send failed'); } });
+}
 (function () {
   var form = document.getElementById('enquiry');
   if (!form) { return; }
@@ -22,16 +36,17 @@
     if (!name || !email) { note.textContent = 'Add your name and email so we can reply.'; return; }
     btn.disabled = true;
     note.textContent = 'Sending...';
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, email: email, need: document.getElementById('f-need').value, message: msg, website: document.getElementById('f-web').value })
-    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
-      .then(function (x) {
-        if (x.ok) { note.textContent = 'Thank you. We got your message and sent a confirmation to your email.'; form.reset(); }
-        else { note.textContent = x.d.error || 'We could not send that just now. Please email us at hello@90tengroup.co.za.'; }
-      })
-      .catch(function () { note.textContent = 'We could not send it just now. Please email us instead.'; })
+    if (document.getElementById('f-web').value) { btn.disabled = false; return; }
+    var params = {
+      name: name,
+      email: email,
+      service: document.getElementById('f-need').value,
+      message: msg || '(no message)'
+    };
+    send(EMAILJS.enquiryTemplate, params)
+      .then(function () { return send(EMAILJS.confirmTemplate, params).catch(function () {}); })
+      .then(function () { note.textContent = 'Thank you. We got your message and sent a confirmation to your email.'; form.reset(); })
+      .catch(function () { note.textContent = 'We could not send that just now. Please email us at hello@90tengroup.co.za.'; })
       .then(function () { btn.disabled = false; });
   });
 })();
