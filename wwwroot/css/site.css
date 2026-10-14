@@ -310,10 +310,13 @@ textarea{min-height:7.5rem;resize:vertical}
 .note{min-height:1.4em;color:var(--muted);font-size:.95rem}
 
 /* Footer: no menu */
-footer{border-top:1px solid var(--line);padding-block:2.2rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem 2rem}
+footer{border-top:1px solid var(--line);padding-block:1.4rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.3rem 2rem}
 footer .logo-img{height:3.6rem}
-footer p{color:var(--muted);font-size:.95rem}
+footer p{color:var(--muted);font-size:.85rem;margin:0}
+footer p b{color:var(--ink);font-weight:600;white-space:nowrap}
+footer .foot-slogan{letter-spacing:.02em}
+footer .foot-slogan b{color:var(--ink)}
 
 .totop{position:fixed;right:1.1rem;bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));z-index:40;width:3.4rem;height:3.4rem;border:3px solid var(--black);border-radius:50%;background:#fff;color:var(--black);font-weight:700;font-size:1.05rem;display:grid;place-items:center;text-decoration:none;opacity:0;pointer-events:none;transition:opacity .25s}
 .totop.on{opacity:1;pointer-events:auto}
@@ -639,4 +642,14 @@ footer p{color:var(--muted);font-size:.95rem}
 /* Phone: the slogan is a little bigger */
 @media (max-width:860px){
   .split-logo .slogan{font-size:clamp(11px,3.8vw,15.5px)}
+}
+
+/* Phone: logo, a | divider, then the slogan stacked one word per line (animations kept) */
+@media (max-width:860px){
+  .split-logo{justify-content:flex-start;gap:14px}
+  .split-logo .logo-img{width:84px}
+  .split-logo{flex-wrap:nowrap;justify-content:center}
+  .split-logo .slogan{flex:0 1 auto;margin:0;background:none;text-align:left;white-space:nowrap;font-size:clamp(13px,4vw,16px);line-height:1.2;
+    padding:2px 0 2px 14px;border-left:2px solid rgba(255,255,255,.35);display:flex;flex-direction:column;gap:3px}
+  .split-logo .slogan .w{display:block}
 }
