@@ -22,4 +22,4 @@ No restart is needed after copying new files.
 `POST /api/contact` emails the team and sends the visitor a confirmation. Mail settings go in `appsettings.json` under `Contact` (host `mail.90tengroup.co.za`, port 587); keep the password out of git. The form is not live on the static site yet; visitors are asked to email hello@90tengroup.co.za.
 
 ## Facts on the site
-Founded by Tinyiko Evans Novela, building software since 2014. 6 Saddle Circle, Blue Hills, Midrand, 1685. Slogan: Tailored. Engineered. Nurtured.
+Founded by Tinyiko Evans Novela, building software since 2014. Midrand, South Africa, meetings by appointment. Slogan: Tailored. Engineered. Nurtured.
