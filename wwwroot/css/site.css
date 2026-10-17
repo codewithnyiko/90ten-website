@@ -659,7 +659,7 @@ footer .foot-slogan b{color:var(--ink)}
 /* Timeline: the 2025 company start has a sprout icon in its circle */
 .tl .born .tn,.tl .idea .tn{display:grid;place-items:center}
 .tl .born .tn svg,.tl .idea .tn svg{width:1.5rem;height:1.5rem;fill:none;stroke:#161618;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.tl li>span .hl{font-size:inherit;color:var(--black);font-weight:700;letter-spacing:0}
+.tl li>span .yrs{font-size:inherit;color:var(--black);font-weight:700;letter-spacing:0}
 .tl .kn{color:var(--black);font-weight:700}
 
 /* Tighter section spacing: no band opens or closes on a big empty strip */
