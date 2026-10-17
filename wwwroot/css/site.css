@@ -661,3 +661,19 @@ footer .foot-slogan b{color:var(--ink)}
 .tl .born .tn svg,.tl .idea .tn svg{width:1.5rem;height:1.5rem;fill:none;stroke:#161618;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .tl li>span .hl{font-size:inherit;color:var(--black);font-weight:700;letter-spacing:0}
 .tl .kn{color:var(--black);font-weight:700}
+
+/* Tighter section spacing: no band opens or closes on a big empty strip */
+.band{padding-block:clamp(3rem,6vw,5.5rem)}
+.band.about{padding-block:clamp(1.5rem,3vw,2.5rem) clamp(2.5rem,4vw,3.5rem)}
+
+/* WhatsApp button: always in the bottom-right corner, WhatsApp green so people know it at a glance */
+.wa-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;padding:12px 16px 12px 14px;border-radius:999px;background:#25D366;color:#fff;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 8px 28px -6px rgba(37,211,102,.7);transition:transform .15s ease}
+.wa-fab:hover{transform:scale(1.03)}
+.wa-fab svg{width:24px;height:24px;flex:0 0 auto}
+@media (max-width:640px){.wa-fab{padding:14px}.wa-fab span{display:none}}
+@media (prefers-reduced-motion:reduce){.wa-fab{transition:none}}
+
+/* Desktop: the first screen leaves room to see "Who we are." below the cards, even on a short laptop screen */
+@media (min-width:861px){
+  .split{min-height:min(calc(30rem + 20px),calc(100svh - 10rem));padding-bottom:24px}
+}
