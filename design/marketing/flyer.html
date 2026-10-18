@@ -14,6 +14,7 @@ h1{font-size:13mm;line-height:1.02;margin:0;font-weight:700;letter-spacing:-.01e
 .c b{display:block;font-size:6.2mm;margin-bottom:2mm}
 .c b i{font-style:normal;color:var(--red)}
 .c p{margin:0;font-size:4mm;line-height:1.45;color:var(--muted)}
+.c p b{display:inline;font-size:inherit;margin:0;color:var(--white)}
 .mid{padding:7mm 16mm 0;display:flex;flex-direction:column;gap:6mm}
 .lab{font-size:3.4mm;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 2.5mm}
 .words{font-size:6mm;font-weight:500;display:flex;flex-wrap:wrap;gap:1mm 4mm}
@@ -22,6 +23,11 @@ h1{font-size:13mm;line-height:1.02;margin:0;font-weight:700;letter-spacing:-.01e
 .prod{display:flex;align-items:center;gap:6mm}
 .prod p{margin:0;font-size:4.2mm;line-height:1.35;color:var(--white)}
 .prod p span{color:var(--muted)}
+.store{margin-top:4mm;display:flex;align-items:center;justify-content:space-between;gap:6mm}
+.store p{margin:0;font-size:4mm;line-height:1.4;color:var(--muted);max-width:80mm}
+.store p b{color:var(--white)}
+.badges{display:flex;gap:3mm}
+.badges img{height:11mm;width:auto;display:block}
 .foot{margin-top:auto;background:var(--white);color:var(--ink);padding:8mm 16mm;display:flex;justify-content:space-between;align-items:flex-end;gap:8mm}
 .foot h2{font-size:8mm;margin:0 0 2mm;line-height:1.05}
 .foot p{margin:0;font-size:4.2mm;line-height:1.45;color:#555}
@@ -44,7 +50,9 @@ h1{font-size:13mm;line-height:1.02;margin:0;font-weight:700;letter-spacing:-.01e
     <div class="words"><span>Logistics</span><i>/</i><span>Health</span><i>/</i><span>Churches</span><i>/</i><span>Hospitality</span><i>/</i><span>Mining</span><i>/</i><span class="y">Yours</span></div></div>
   <div><p class="lab">Our product</p>
     <div class="prod"><span class="chip"><img alt="Kereke" src="../../wwwroot/img/kereke-logo.png"></span>
-      <p>The complete ministry operations platform.<br><span>Built and maintained by us.</span></p></div></div>
+      <p>The complete ministry operations platform.<br><span>Built and maintained by us.</span></p></div>
+    <div class="store"><p>Our app for Android and iOS. Search <b>Kereke</b> on the App Store or Google Play.</p>
+      <div class="badges"><img alt="Download on the App Store" src="img/app-store.svg"><img alt="Get it on Google Play" src="img/google-play.svg"></div></div></div>
 </div>
 <div class="foot">
   <div><h2>Tell us what you need.</h2><p>Send a few lines. We reply with questions, not a sales pitch.</p></div>
