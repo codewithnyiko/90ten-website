@@ -11,12 +11,11 @@ dotnet run --urls http://localhost:5190
 Open http://localhost:5190. With no mail server set, contact form emails are saved as files in `App_Data/outbox`.
 
 ## Put it live
-The live site is the contents of `wwwroot`, served as static files by Caddy on the droplet from `/opt/90ten-site`:
+The live site is the contents of `wwwroot`, served as static files by Caddy on the droplet from `/opt/90ten-site`. Push to `master`, then on the droplet run:
 ```
-ssh root@143.244.172.110 "mkdir -p /opt/90ten-site"
-scp -r wwwroot/* root@143.244.172.110:/opt/90ten-site/
+/opt/update-90ten.sh
 ```
-No restart is needed after copying new files.
+The script downloads `master` from GitHub and copies `wwwroot` into `/opt/90ten-site`. No restart is needed. When you change `site.css` or `site.js`, bump its `?v=` number in `index.html` so browsers load the new file.
 
 ## Contact form
 `POST /api/contact` emails the team and sends the visitor a confirmation. Mail settings go in `appsettings.json` under `Contact` (host `mail.90tengroup.co.za`, port 587); keep the password out of git. The form is not live on the static site yet; visitors are asked to email hello@90tengroup.co.za.
