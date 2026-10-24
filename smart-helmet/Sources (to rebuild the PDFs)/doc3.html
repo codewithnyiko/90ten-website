@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Smart Helmet: Critical Questions, Set 1</title>
+<link rel="stylesheet" href="style3.css">
+<style>
+  body { font-size: 9.3pt; line-height: 1.38; }
+  table { font-size: 9.6pt; }
+  .band h1 { font-size: 23pt; }
+  .band { padding: 8mm 19mm 5mm; margin-bottom: 4mm; }
+  .band .sub { margin-bottom: 4mm; }
+  .band .meta { gap: 6mm; font-size: 8.6pt; flex-wrap: nowrap; white-space: nowrap; }
+  h2 { margin: 12px 0 5px; padding-top: 8px; }
+  table td, table th { padding: 8px 9px; }
+  .content { padding-bottom: 10mm; }
+  .flow { display: flex; margin: 8px 0 8px; }
+  .flow div { flex: 1; border: 1px solid #b9bbbe; padding: 6px 9px 6px 9px; font-size: 9pt; line-height: 1.35; position: relative; background: #fff; }
+  .flow div + div { border-left: 0; }
+  .flow div b { display: block; font-size: 8pt; letter-spacing: .1em; color: #8a8e94; margin-bottom: 2px; }
+  .flow div:not(:last-child)::after { content: ""; position: absolute; right: -5px; top: 50%; width: 9px; height: 9px; border-top: 1px solid #b9bbbe; border-right: 1px solid #b9bbbe; transform: translateY(-50%) rotate(45deg); background: #fff; z-index: 2; }
+  .flowcap { font-size: 9pt; color: #5d6167; margin: 0 0 4px; }
+  .p2 { page-break-before: always; padding: 16mm 19mm 0; }
+  .p2 h2 { margin-top: 10px; }
+  .box { border: 1px solid #b9bbbe; padding: 8px 12px; margin: 8px 0; font-size: 10pt; }
+  .box b { font-size: 8.5pt; letter-spacing: .1em; text-transform: uppercase; color: #5d6167; }
+  .box p { margin: 3px 0; }
+  .box.dark { background: #17181a; color: #fff; border-color: #17181a; }
+  .box.dark b { color: #fff; }
+</style>
+</head><body>
+
+<div class="band">
+  <img class="logo" src="logo-white.svg" alt="90Ten Group">
+  <h1 style="margin-top:7mm">Smart Helmet: Critical Questions, Set 1</h1>
+  <p class="sub">What the helmet supports: our own server, documentation, beacons, data from underground and updates.</p>
+  <div class="meta">
+    <span>Prepared for <b>Thella Group Services and Imperium Corporate</b></span>
+    <span>Prepared by <b>90Ten Group</b></span>
+    <span>20 October 2026</span>
+    <span>Version 1</span>
+  </div>
+</div>
+
+<div class="content">
+
+<h2>The critical questions</h2>
+<table class="q">
+<thead><tr><th>No.</th><th>Question</th><th>Why we ask</th></tr></thead>
+<tr><td class="n">1</td><td class="qq">Can the helmet talk only to our own server and never to the supplier's computers in China? How do we set that up?</td><td>The helmet now asks hm.equiinet.cn for its settings (Interface Document p3). The supplier says this can be changed.</td></tr>
+<tr><td class="n">2</td><td class="qq">Is there an SDK and online, up-to-date documentation for talking directly to the helmet, meaning the messages it sends and accepts? How will we know when it changes?</td><td>We only have a PDF with no date. We want to talk to the helmet from our own server, not through the supplier's platform. See page 2.</td></tr>
+<tr><td class="n">3</td><td class="qq">Can the helmet read any Bluetooth beacon or only certain makes? Can we tell it which beacons to use, how many and from how far?</td><td>We must buy the right beacons. The documents do not say which ones work (Spec Sheet p2).</td></tr>
+<tr><td class="n">4</td><td class="qq">Where there is no signal, does the helmet save the beacons it passes and its alarms, with the time and send them later when it has signal, alarms first?</td><td>Underground there is often no signal. The Spec Sheet says positions are saved (p5) but not how.</td></tr>
+<tr><td class="n">5</td><td class="qq">Who sends software updates? Can we choose which helmets get one and test it first? Does an update need a secret stamp (a digital signature)?</td><td>An update can change what the helmet sends (p2). The documents list only a check number (pp5 and 8).</td></tr>
+</table>
+
+</div>
+
+<div class="p2">
+<h2>What an SDK and an API are and why we ask</h2>
+<div class="box"><b>API</b>
+<p>A list of the messages a system understands and the answer it gives to each. Think of a church office window: you hand in a form filled in the right way and you get an answer back. If the form is wrong, nothing happens. For the helmet, the API is the list of messages it sends (where it is, an alarm) and the messages it accepts (take a photo, join this Wi-Fi).</p></div>
+<div class="box"><b>SDK</b>
+<p>A toolkit that comes with the API: ready-made code, examples and a way to test. Without it we write everything from scratch and find the mistakes ourselves. With it, we start faster and make fewer errors.</p></div>
+<div class="box"><b>How online documentation helps us</b>
+<p>When the supplier changes something, the online page changes the same day and we see it. With a PDF we only learn about a change if someone remembers to send it. The supplier may serve many clients and may not tell us.</p></div>
+<h2>What we really want</h2>
+<div class="box dark"><p>We do not want to depend on the supplier's own platform or their way of doing things. We want to talk <b>directly with the helmet</b>: the helmet connects to <b>our server</b> in South Africa, sends us its messages and we send it commands.</p>
+<p>The Interface Document we have describes the helmet's side of this, but it was written for the supplier's own server. We need to know whether the same messages work with our server and whether anything still depends on theirs. Their ready-made API may be built around their platform and that may not be what we want.</p></div>
+<h2>What we will ask them to confirm</h2>
+<table class="q"><tbody>
+<tr><td class="n">a</td><td class="qq">The messages between the helmet and a server are the same, whoever runs the server.</td></tr>
+<tr><td class="n">b</td><td class="qq">The helmet does not need the supplier's platform or accounts for anything to work.</td></tr>
+<tr><td class="n">c</td><td class="qq">We get the full list of messages, with examples, in an online place that shows its version and date.</td></tr>
+</tbody></table>
+</div>
+<div class="foot"><span>Confidential</span><span>Smart Helmet</span></div>
+</body></html>

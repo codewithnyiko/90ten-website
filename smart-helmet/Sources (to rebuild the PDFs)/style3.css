@@ -1,0 +1,81 @@
+:root { --ink: #131416; --body: #2a2c30; --muted: #5d6167; --soft: #8a8e94; --line: #d6d8da; --panel: #f3f3f1; --black: #17181a; }
+
+@page {
+  size: A4;
+  margin: 25mm 19mm 20mm 19mm;
+  @top-left { content: url("logo-dark-small.svg"); vertical-align: bottom; padding-bottom: 5mm; }
+  @top-right { content: string(doctitle); font: 8.5pt Calibri, "Segoe UI", Arial, sans-serif; color: #6b6f75; vertical-align: bottom; padding-bottom: 6mm; }
+  @bottom-left { content: "Confidential"; font: 8.5pt Calibri, "Segoe UI", Arial, sans-serif; color: #8a8e94; }
+  @bottom-right { content: counter(page) " / " counter(pages); font: 8.5pt Calibri, "Segoe UI", Arial, sans-serif; color: #6b6f75; }
+}
+@page :first {
+  margin: 0;
+  @top-left { content: none; } @top-right { content: none; } @bottom-left { content: none; } @bottom-right { content: none; }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: Calibri, "Segoe UI", Arial, sans-serif; font-size: 10.3pt; line-height: 1.45; color: var(--body); margin: 0; counter-reset: sec; }
+.running-title { string-set: doctitle content(text); display: none; }
+
+/* ---------- cover ---------- */
+.cover { width: 210mm; height: 296mm; background: var(--black); color: #fff; padding: 20mm 22mm 18mm; display: flex; flex-direction: column; break-after: page; position: relative; overflow: hidden; }
+.cover .logo { width: 58mm; height: auto; display: block; margin-left: -3.5mm; }
+.cover .mid { margin-top: auto; margin-bottom: auto; padding-top: 18mm; }
+.cover .kicker { font-size: 10pt; letter-spacing: .22em; text-transform: uppercase; color: #a9adb3; margin: 0 0 9mm; }
+.cover h1 { font-size: 38pt; line-height: 1.08; font-weight: 700; letter-spacing: -.01em; color: #fff; margin: 0 0 8mm; max-width: 150mm; }
+.cover .sub { font-size: 14pt; line-height: 1.4; color: #c9ccd1; max-width: 130mm; margin: 0; font-weight: 300; }
+.cover .rule { border: 0; border-top: 1px solid #55585d; margin: 0 0 4mm; }
+.cover table.meta { width: 100%; border-collapse: collapse; margin: 0 0 8mm; font-size: 10pt; }
+.cover table.meta td { border: 0; border-bottom: 1px solid #3a3c40; padding: 3mm 0; vertical-align: top; color: #fff; }
+.cover table.meta td:first-child { width: 38mm; color: #9a9ea4; letter-spacing: .02em; }
+.cover .conf { font-size: 8.5pt; letter-spacing: .2em; text-transform: uppercase; color: #8a8e94; margin: 0; }
+
+/* ---------- body ---------- */
+.content { break-before: auto; }
+h2 { counter-increment: sec; font-size: 14.5pt; line-height: 1.2; color: var(--ink); font-weight: 700; margin: 16px 0 6px; padding-top: 10px; border-top: 1.2px solid var(--ink); break-after: avoid; display: flex; gap: 10px; align-items: baseline; }
+h2::before { content: counter(sec, decimal-leading-zero); font-size: 9.5pt; font-weight: 600; color: var(--soft); letter-spacing: .08em; min-width: 20px; }
+h2:first-of-type { margin-top: 0; }
+p { margin: 0 0 8px; }
+ul, ol { margin: 0 0 10px; padding-left: 19px; }
+li { margin: 0 0 3px; padding-left: 2px; }
+li::marker { color: var(--ink); }
+strong { color: var(--ink); }
+.label { font-weight: 700; color: var(--ink); margin: 14px 0 4px; font-size: 10.6pt; break-after: avoid; }
+.ex { background: var(--panel); padding: 8px 12px; margin: 8px 0 10px; border: 0; }
+.ex strong { text-transform: uppercase; letter-spacing: .1em; font-size: 8.4pt; margin-right: 4px; }
+
+table { border-collapse: collapse; width: 100%; margin: 6px 0 11px; font-size: 9pt; line-height: 1.4; }
+th { background: var(--black); color: #fff; text-align: left; font-weight: 600; padding: 6px 8px; border: 0; letter-spacing: .02em; }
+td { padding: 6px 8px; border: 0; border-bottom: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+tr { break-inside: avoid; }
+table td:first-child { color: var(--ink); }
+
+/* ---------- short document: black band on page 1 ---------- */
+@page :first {
+  margin: 0 19mm 20mm 19mm;
+  @top-left { content: none; } @top-right { content: none; }
+  @bottom-left { content: "Confidential"; font: 8.5pt Calibri, "Segoe UI", Arial, sans-serif; color: #8a8e94; }
+  @bottom-right { content: counter(page) " / " counter(pages); font: 8.5pt Calibri, "Segoe UI", Arial, sans-serif; color: #6b6f75; }
+}
+.band { background: var(--black); color: #fff; margin: 0 -19mm 7mm -19mm; padding: 11mm 19mm 8mm; }
+.band .logo { width: 48mm; height: auto; display: block; margin-left: -3mm; }
+.band .kicker { font-size: 9pt; letter-spacing: .22em; text-transform: uppercase; color: #a9adb3; margin: 9mm 0 3mm; }
+.band h1 { font-size: 27pt; line-height: 1.1; margin: 0 0 3mm; color: #fff; font-weight: 700; letter-spacing: -.01em; }
+.band .sub { font-size: 12.5pt; color: #c9ccd1; margin: 0 0 5mm; font-weight: 300; }
+.band .meta { font-size: 9pt; color: #9a9ea4; border-top: 1px solid #3a3c40; padding-top: 3mm; display: flex; gap: 9mm; flex-wrap: wrap; }
+.band .meta b { color: #fff; font-weight: 600; }
+table.q td.n { width: 8mm; color: var(--soft); font-weight: 600; }
+table.q td.qq { width: 82mm; color: var(--ink); }
+.next { margin-top: 4px; }
+
+body { font-size: 10pt; }
+table { font-size: 8.9pt; }
+
+/* one page document: no page margin, so the band can run edge to edge */
+@page { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+@page :first { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+.band { margin: 0 0 7mm 0; padding: 11mm 19mm 8mm; }
+.band .logo { margin-left: -3mm; }
+.content { padding: 0 19mm 16mm; }
+.foot { position: fixed; left: 19mm; right: 19mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 8.5pt; color: #8a8e94; }

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Smart Helmet: How v1.00 Works in the Existing Environment</title>
+<link rel="stylesheet" href="style3.css">
+<style>
+  body { font-size: 10pt; line-height: 1.4; }
+  table { font-size: 9.4pt; }
+  .band h1 { font-size: 22pt; }
+  .band { padding: 9mm 19mm 6mm; margin-bottom: 4mm; }
+  .band .sub { margin-bottom: 4mm; }
+  .band .meta { gap: 6mm; font-size: 8.6pt; flex-wrap: nowrap; white-space: nowrap; }
+  h2 { margin: 10px 0 5px; padding-top: 7px; }
+  table td, table th { padding: 5.5px 9px; }
+  .content { padding-bottom: 10mm; }
+  .pg { page-break-before: always; padding: 16mm 19mm 0; }
+  .box { border: 1px solid #b9bbbe; padding: 8px 12px; margin: 8px 0; font-size: 10pt; }
+  .box b, .col b { font-size: 8.3pt; letter-spacing: .1em; text-transform: uppercase; color: #5d6167; }
+  .box p { margin: 3px 0; }
+  .box.dark { background: #17181a; color: #fff; border-color: #17181a; }
+  .box.dark b { color: #fff; }
+  .lead { color: #5d6167; margin: 2px 0 8px; }
+  .cols { display: flex; gap: 10px; margin: 8px 0; }
+  .col { flex: 1; border-top: 1px solid #17181a; padding-top: 5px; font-size: 9.6pt; }
+  .col ul { margin: 4px 0 0; padding-left: 16px; }
+  .col li { margin: 3px 0; }
+  .dg { margin: 6px 0 8px; }
+  ol.nt { margin: 4px 0 0; padding-left: 0; list-style: none; font-size: 9.6pt; }
+  ol.nt li { margin: 5px 0; padding-left: 26px; position: relative; counter-increment: n; }
+  ol.nt li::before { content: counter(n); position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%; background: #17181a; color: #fff; font-size: 8.5pt; font-weight: 700; text-align: center; line-height: 16px; }
+  ol.nt { counter-reset: n; }
+  .tag { display: inline-block; border: 1px solid #17181a; padding: 1px 8px; font-size: 8.5pt; font-weight: 700; margin-bottom: 4px; }
+
+  /* plain notes: no black boxes and no grey outlines */
+  .box, .box.dark { background: none !important; border: 0 !important; color: #131416 !important; padding: 2px 0 !important; margin: 12px 0 !important; }
+  .box b, .box.dark b { color: #5d6167 !important; }
+  .box p, .box.dark p { color: #131416 !important; }
+</style>
+</head><body>
+
+<div class="band">
+  <img class="logo" src="logo-white.svg" alt="90Ten Group">
+  <h1 style="margin-top:7mm;font-size:20pt">Smart Helmet: How v1.00 Works in the Existing Environment</h1>
+  <p class="sub">How the application works while the helmets still use the supplier's existing servers.</p>
+  <div class="meta">
+    <span>Prepared for <b>Thella Group Services and Imperium Corporate</b></span>
+    <span>Designed and prepared by <b>90Ten Group</b></span>
+    <span>20 October 2026</span>
+    <span>v1.00</span>
+  </div>
+</div>
+
+
+<div class="content">
+<h2>What the existing environment is</h2>
+<p class="lead">v1.00 does not change the helmet. It uses what is already there and changes only where the helmet sends its reports. Message formats follow the supplier's Interface Document for Device-side Connecting.</p>
+<table class="q"><thead><tr><th>Part</th><th>Who has it</th><th>What we do with it</th></tr></thead><tr><td class="qq"><b>The helmet</b></td><td>The supplier made it. It has a SIM card for 4G.</td><td>Nothing. It stays as it is.</td></tr><tr><td class="qq"><b>The address server</b></td><td>The supplier. It sits at hm.equiinet.cn and is built into the helmet.</td><td>Nothing. The helmet still asks it where to report.</td></tr><tr><td class="qq"><b>The supplier platform</b></td><td>The supplier. We get an admin login for the helmets.</td><td>We log in once and change the two addresses to the client's server.</td></tr><tr><td class="qq"><b>The mobile network</b></td><td>The SIM card on each helmet.</td><td>Nothing. The helmet reports over 4G on the surface.</td></tr><tr><td class="qq"><b>The client's servers</b></td><td>The client's. They run in South Africa.</td><td>They receive the reports and keep them and show them.</td></tr></table>
+<div class="box dark"><b>What changes and what does not</b><p>What changes is the two addresses the helmet is told to report to. What does not change is the helmet itself and its software and the supplier address server it asks first.</p></div>
+</div>
+
+<div class="pg">
+<h2>How a helmet reaches the client's server</h2>
+<p class="lead">The helmet first asks the supplier's address server where to report. The answer is the client's server. From then on the reports go there.</p>
+<div class="dg"><svg viewBox="0 0 680 280" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Calibri, Arial, sans-serif"><defs><marker id="EAR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#17181a" stroke-width="1.5"/></marker></defs><rect x="0.5" y="0.5" width="679" height="279" rx="4" fill="#fff" stroke="#b9bbbe"/><rect x="1" y="1" width="130" height="278" fill="#f1f2f3"/><text x="12" y="18" font-size="8" fill="#8a8e94" text-anchor="start" letter-spacing="1.2">IN THE FIELD</text><text x="143" y="18" font-size="8" fill="#8a8e94" text-anchor="start" letter-spacing="1.2">EXISTING (SUPPLIER)</text><line x1="340" y1="28" x2="340" y2="270" stroke="#8a8e94" stroke-width="1" stroke-dasharray="4 3"/><text x="352" y="18" font-size="8" fill="#8a8e94" text-anchor="start" letter-spacing="1.2">CLIENT SERVERS, SOUTH AFRICA</text><rect x="16" y="107" width="100" height="66" rx="3" fill="#fff" stroke="#b9bbbe" stroke-width="1.8"/><g transform="translate(66,128) scale(0.9)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,5 A11 11 0 0 1 11,5 Z M-14,5 H14"/><circle cx="0" cy="-2" r="2.4"/></g><text x="66" y="151" font-size="9.5" fill="#17181a" font-weight="700" text-anchor="middle">Helmet</text><text x="66" y="163" font-size="8" fill="#8a8e94" text-anchor="middle">as it is today</text><rect x="180" y="39" width="130" height="66" rx="3" fill="#fff" stroke="#b9bbbe" stroke-width="1"/><g transform="translate(245,60) scale(0.9)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g><text x="245" y="83" font-size="9.5" fill="#17181a" font-weight="700" text-anchor="middle">Address server</text><text x="245" y="95" font-size="8" fill="#8a8e94" text-anchor="middle">hm.equiinet.cn</text><rect x="165" y="181" width="160" height="66" rx="3" fill="#f1f2f3" stroke="#8a8e94" stroke-dasharray="5 4" stroke-width="1"/><g transform="translate(245,202) scale(0.9)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g><text x="245" y="225" font-size="9.5" fill="#8a8e94" font-weight="700" text-anchor="middle">Supplier platform</text><text x="245" y="237" font-size="8" fill="#8a8e94" text-anchor="middle">set once with the admin login</text><rect x="358" y="107" width="104" height="66" rx="3" fill="#fff" stroke="#b9bbbe" stroke-width="1.8"/><g transform="translate(410,128) scale(0.9)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g><text x="410" y="151" font-size="9.5" fill="#17181a" font-weight="700" text-anchor="middle">Live server</text><text x="410" y="163" font-size="8" fill="#8a8e94" text-anchor="middle">login and reports</text><rect x="480" y="107" width="100" height="66" rx="3" fill="#fff" stroke="#b9bbbe" stroke-width="1.8"/><g transform="translate(530,128) scale(0.9)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g><text x="530" y="151" font-size="9.5" fill="#17181a" font-weight="700" text-anchor="middle">Data store</text><text x="530" y="163" font-size="8" fill="#8a8e94" text-anchor="middle">every report</text><rect x="590" y="107" width="76" height="66" rx="3" fill="#fff" stroke="#b9bbbe" stroke-width="1.8"/><g transform="translate(628,128) scale(0.9)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-12" y="-10" width="24" height="15" rx="1.5"/><path d="M0,5 V10 M-6,10 H6"/></g><text x="628" y="151" font-size="9.5" fill="#17181a" font-weight="700" text-anchor="middle">Screens</text><text x="628" y="163" font-size="8" fill="#8a8e94" text-anchor="middle">control room</text><line x1="110" y1="118" x2="185" y2="88" stroke="#17181a" stroke-width="1.4" marker-end="url(#EAR)" marker-start="url(#EAR)"/><text x="70" y="82" font-size="8.5" fill="#17181a" font-weight="700" text-anchor="start">1 Where do I report?</text><text x="70" y="94" font-size="8.5" fill="#17181a" font-weight="700" text-anchor="start">2 Report to the client</text><line x1="245" y1="181" x2="245" y2="106" stroke="#8a8e94" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#EAR)"/><line x1="116" y1="140" x2="357" y2="140" stroke="#17181a" stroke-width="1.4" marker-end="url(#EAR)"/><text x="236" y="132" font-size="8.5" fill="#17181a" font-weight="700" text-anchor="middle">3 login and reports</text><line x1="462" y1="140" x2="478" y2="140" stroke="#17181a" stroke-width="1.4" marker-end="url(#EAR)"/><line x1="580" y1="140" x2="590" y2="140" stroke="#17181a" stroke-width="1.4" marker-end="url(#EAR)"/></svg></div>
+<table class="q"><thead><tr><th>No.</th><th>What happens</th></tr></thead><tr><td class="n">1</td><td class="qq">The helmet switches on and asks the address server where to report.</td></tr><tr><td class="n">2</td><td class="qq">The address server answers with the two addresses we set. They point to the client's server.</td></tr><tr><td class="n">3</td><td class="qq">The helmet opens a live link to the live server and logs in with its device number.</td></tr><tr><td class="n">4</td><td class="qq">It sends a report every 10 seconds with its position and battery and the Bluetooth devices it hears.</td></tr><tr><td class="n">5</td><td class="qq">If an alarm happens it sends the alarm at once.</td></tr><tr><td class="n">6</td><td class="qq">The data store keeps every report and the screens show it.</td></tr></table>
+</div>
+
+
+<div class="pg">
+<h2>The data we get from the helmet</h2>
+<p class="lead">The helmet keeps a live link open and sends its data to us. We do not have to ask for it. A report arrives every 10 seconds.</p>
+<table class="q"><thead><tr><th>What the helmet sends</th><th>What it tells us</th><th>Where we use it in v1.00</th></tr></thead><tr><td class="qq"><b>Position (x_point and y_point)</b></td><td>Where the worker is. The system is Gaode (question 3).</td><td>Overview and one worker and alarm</td></tr><tr><td class="qq"><b>Position quality (c_accuracy and gps and gps_level)</b></td><td>How far to trust the position. Whether it comes from GPS or the mobile network.</td><td>Map and last seen</td></tr><tr><td class="qq"><b>Battery (bat_l and charging)</b></td><td>Battery percent and whether it is charging.</td><td>Overview low battery and sign in</td></tr><tr><td class="qq"><b>Worn or not (is_weared)</b></td><td>Whether the helmet is on the head.</td><td>Sign in and shift view</td></tr><tr><td class="qq"><b>Network (net_type and net_strenth)</b></td><td>4G or Wi-Fi and how strong.</td><td>One worker</td></tr><tr><td class="qq"><b>Bluetooth devices (bt_signal_info)</b></td><td>Every device the helmet hears with signal strength and time.</td><td>Bluetooth test</td></tr><tr><td class="qq"><b>Alarms (ca_sos)</b></td><td>Which alarm: SOS and fall and helmet off and others, with the position.</td><td>Alarm screen and overview</td></tr><tr><td class="qq"><b>SOS button (ca_sip_sos)</b></td><td>The worker pressed SOS. It also asks for a call room.</td><td>Alarm screen</td></tr></table>
+<h2>What we send back to the helmet</h2>
+<table class="q"><thead><tr><th>What we send</th><th>What it does</th><th>When it reaches the helmet</th></tr></thead><tr><td class="qq"><b>Replies to login and to each report</b></td><td>The helmet needs these to carry on.</td><td>At once</td></tr><tr><td class="qq"><b>Settings in the start-up reply</b></td><td>Alarm temperature and helmet off delay and no movement time and beacon scanning and others.</td><td>When the helmet next starts up</td></tr><tr><td class="qq"><b>Start or stop recording</b></td><td>Starts or stops the video recording on the helmet.</td><td>At once</td></tr><tr><td class="qq"><b>Join a Wi-Fi network</b></td><td>Tells the helmet which Wi-Fi to join.</td><td>At once</td></tr></table>
+<div class="box"><b>Hosting</b><p>v1.00 is built and tested on a 90Ten test server with sample data. It is then installed on the client's own servers in South Africa and the data stays there.</p></div>
+</div>
+
+<div class="pg">
+<h2>A shift from start to end</h2>
+<p class="lead">What happens in v1.00 during one shift for one worker.</p>
+<table class="q"><thead><tr><th>When</th><th>What happens</th><th>Where</th></tr></thead><tr><td class="qq"><b>Before the shift</b></td><td>At the lamp room the worker is linked to a helmet and a shift. The screen shows if the helmet is seen and its battery.</td><td>Sign in screen</td></tr><tr><td class="qq"><b>Shift starts</b></td><td>The helmet is switched on and asks where to report and logs in to the client server.</td><td>Helmet and live server</td></tr><tr><td class="qq"><b>During the shift</b></td><td>The helmet reports every 10 seconds. The control room sees the worker on the map and who is seen and who is not.</td><td>Overview and shift view</td></tr><tr><td class="qq"><b>An alarm</b></td><td>A fall or an SOS reaches the server at once. The control room sees who and where and when. A video call needs a call server so it comes in a later version.</td><td>Alarm screen</td></tr><tr><td class="qq"><b>A headcount</b></td><td>The control room lists everyone signed in by where they were last seen and ticks people safe.</td><td>Headcount screen</td></tr><tr><td class="qq"><b>Shift ends</b></td><td>The worker hands the helmet back and it is returned in the sign in screen. The history keeps who had it.</td><td>Sign in screen</td></tr></table>
+<div class="box"><b>Not in v1.00</b><p>The underground trail and data saved with no signal and fences and live video and video calls. They come in later versions.</p></div>
+</div>
+
+<div class="pg">
+<h2>What we depend on</h2>
+<table class="q"><thead><tr><th>What</th><th>Why</th><th>Status</th></tr></thead><tr><td class="qq"><b>A sample helmet</b></td><td>Imperium has two helmets in South Africa. We need one in hand to build the application because we have to test it. Without one we can only test with a pretend helmet.</td><td>Needed first</td></tr><tr><td class="qq"><b>The admin login on the supplier platform</b></td><td>It is how we change the two addresses on the supplier platform.</td><td>Needed</td></tr><tr><td class="qq"><b>The supplier address server being reachable</b></td><td>The helmet asks it first every time it starts. If it cannot be reached the helmet may not learn where to report. Changing the address inside the helmet later removes this.</td><td>To confirm</td></tr><tr><td class="qq"><b>Secure connections</b></td><td>The addresses in the example are plain http and ws. We need to know if the helmet accepts secure addresses.</td><td>To confirm</td></tr><tr><td class="qq"><b>The SIM card data</b></td><td>The helmet reports over 4G. Someone pays for the data.</td><td>To confirm</td></tr><tr><td class="qq"><b>The map</b></td><td>Positions use the Gaode system (question 3). We test with a helmet.</td><td>To confirm</td></tr></table>
+<h2>What could go wrong and what we do</h2>
+<table class="q"><thead><tr><th>What</th><th>What we do</th><th>When</th></tr></thead><tr><td class="qq"><b>The supplier address server is down</b></td><td>The helmet may not report. This is the reason to move to an address server of the client.</td><td>Before wide use</td></tr><tr><td class="qq"><b>A helmet is not in the allowed list</b></td><td>The live server refuses it. It shows in the shift view as a helmet nobody signed for.</td><td>v1.00</td></tr><tr><td class="qq"><b>A helmet has no signal</b></td><td>It shows as not seen with the last place and time. On the surface this is a prompt to check.</td><td>v1.00</td></tr><tr><td class="qq"><b>Underground there is no signal</b></td><td>We cannot see the worker. Data saved with no signal is not described yet.</td><td>v2.00</td></tr></table>
+
+</div>
+
+<div class="foot"><span>Confidential. Designed and prepared by 90Ten Group. 20 October 2026.</span><span>Smart Helmet v1.00</span></div>
+</body></html>

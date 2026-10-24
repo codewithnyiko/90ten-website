@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Smart Helmet: Questions, Update 1</title>
+<link rel="stylesheet" href="style3.css">
+<style>
+  body { font-size: 10pt; line-height: 1.4; }
+  table { font-size: 9.4pt; }
+  .band h1 { font-size: 22pt; }
+  .band { padding: 9mm 19mm 6mm; margin-bottom: 4mm; }
+  .band .sub { margin-bottom: 4mm; }
+  .band .meta { gap: 6mm; font-size: 8.6pt; flex-wrap: nowrap; white-space: nowrap; }
+  h2 { margin: 10px 0 5px; padding-top: 7px; }
+  table td, table th { padding: 5.5px 9px; }
+  .content { padding-bottom: 10mm; }
+  .pg { page-break-before: always; padding: 16mm 19mm 0; }
+  .box { border: 1px solid #b9bbbe; padding: 8px 12px; margin: 8px 0; font-size: 10pt; }
+  .box b, .col b { font-size: 8.3pt; letter-spacing: .1em; text-transform: uppercase; color: #5d6167; }
+  .box p { margin: 3px 0; }
+  .box.dark { background: #17181a; color: #fff; border-color: #17181a; }
+  .box.dark b { color: #fff; }
+  .lead { color: #5d6167; margin: 2px 0 8px; }
+  .cols { display: flex; gap: 10px; margin: 8px 0; }
+  .col { flex: 1; border-top: 1px solid #17181a; padding-top: 5px; font-size: 9.6pt; }
+  .col ul { margin: 4px 0 0; padding-left: 16px; }
+  .col li { margin: 3px 0; }
+  .dg { margin: 6px 0 8px; }
+  ol.nt { margin: 4px 0 0; padding-left: 0; list-style: none; font-size: 9.6pt; }
+  ol.nt li { margin: 5px 0; padding-left: 26px; position: relative; counter-increment: n; }
+  ol.nt li::before { content: counter(n); position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%; background: #17181a; color: #fff; font-size: 8.5pt; font-weight: 700; text-align: center; line-height: 16px; }
+  ol.nt { counter-reset: n; }
+  .tag { display: inline-block; border: 1px solid #17181a; padding: 1px 8px; font-size: 8.5pt; font-weight: 700; margin-bottom: 4px; }
+  table.s { font-size: 8.9pt; } table.s th:nth-child(1) { width: 6%; } table.s th:nth-child(2) { width: 21%; } table.s th:nth-child(3) { width: 37%; }
+  table.s td { padding: 5px 8px; vertical-align: top; }
+  .tag { display: block; border: 0; padding: 0; margin: 0 0 3px; font-weight: 700; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; }
+</style>
+</head><body>
+
+<div class="band">
+  <img class="logo" src="logo-white.svg" alt="90Ten Group">
+  <h1 style="margin-top:7mm">Smart Helmet: Questions, Update 1</h1>
+  <p class="sub">What the supplier document already answers and what we still need to clarify.</p>
+  <div class="meta">
+    <span>Prepared for <b>Thella Group Services and Imperium Corporate</b></span>
+    <span>Prepared by <b>90Ten Group</b></span>
+    <span>20 October 2026</span>
+    <span>v1.00</span>
+  </div>
+</div>
+
+<div class="content">
+<h2>Where we are on each question</h2>
+<p class="lead">The numbers match the Software Questions document. The supplier document answers some of them fully and some only in part.</p>
+<table class="q s"><thead><tr><th>No.</th><th>Question</th><th>What the document says</th><th>Still to clarify</th></tr></thead>
+<tr><td class="n">1</td><td class="qq"><b>Our own server</b></td><td><span class="tag">Partly answered.</span> Two ways to change where the helmet reports. Solution 1 uses the admin login on the supplier platform. Solution 2 works on camera models and we build one small address page (pp3 and 4).</td><td>The steps for Modification Method 1 and 2. The admin login. Whether anything else still calls the supplier.</td></tr>
+<tr><td class="n">2</td><td class="qq"><b>A written list of messages</b></td><td><span class="tag">Answered.</span> The Interface Document lists the helmet messages and the server replies (pp3 to 43).</td><td>A version and a date. How we are told when it changes (p2 says messages differ by software version).</td></tr>
+<tr><td class="n">3</td><td class="qq"><b>The map</b></td><td><span class="tag">Partly answered.</span> Positions use the Gaode system GCJ-02 (pp19 and 20 and 30).</td><td>Whether positions are shifted in South Africa. We will test with a helmet.</td></tr>
+<tr><td class="n">4</td><td class="qq"><b>Beacons</b></td><td><span class="tag">Partly answered.</span> Every report lists all Bluetooth devices heard (p15). A setting turns beacon scanning on (p6).</td><td>What f_id and f_key and bt_beacon do (p19). How the helmet picks the beacons it uses.</td></tr>
+<tr><td class="n">5</td><td class="qq"><b>Save and send later</b></td><td><span class="tag">Partly answered.</span> ca_backup_data is the offline location upload (p2). It is named and not described.</td><td>The message format. How long it is kept. Whether alarms go first.</td></tr>
+<tr><td class="n">6</td><td class="qq"><b>Alarms with no signal</b></td><td><span class="tag">Open.</span> The document does not say.</td><td>What happens to an SOS or a fall with no signal.</td></tr>
+<tr><td class="n">7</td><td class="qq"><b>Danger zone warnings</b></td><td><span class="tag">Mostly answered.</span> Alarm types 17 and 18 are entering and leaving a Bluetooth beacon area (p20).</td><td>How we mark a beacon as a zone beacon.</td></tr>
+<tr><td class="n">8</td><td class="qq"><b>Who sends updates</b></td><td><span class="tag">Partly answered.</span> Update details are in the start-up reply for each helmet so we can decide for each one (pp3 and 5 and 8).</td><td>What changes in each update. Whether a helmet checks only at start-up.</td></tr>
+<tr><td class="n">9</td><td class="qq"><b>Our own updates and software</b></td><td><span class="tag">Open.</span> Only a check number is listed (pp5 and 8). Nothing about a secret stamp or our own app.</td><td>Whether the helmet accepts software from us. Whether we may install our own app.</td></tr>
+<tr><td class="n">10</td><td class="qq"><b>Video during an SOS call</b></td><td><span class="tag">Partly answered.</span> The SOS button opens a call room (p21). Calls need a call server (p39). Live video starts by a command (p37).</td><td>Whether video starts by itself when SOS is pressed.</td></tr>
+<tr><td class="n">11</td><td class="qq"><b>Wi-Fi</b></td><td><span class="tag">Partly answered.</span> The server can ask for nearby Wi-Fi and tell the helmet to join one. Camera models only (pp41 to 43).</td><td>Whether it remembers several networks and moves between them on its own. Whether it works on Wi-Fi alone.</td></tr>
+</table>
+</div>
+
+<div class="pg">
+<h2>What we have heard from Imperium</h2>
+<div class="box"><b>The documents</b><p>They were compiled and reviewed with the supplier because the supplier did not have one single document with all the necessary information.</p></div>
+<div class="box"><b>The certificates</b><p>Imperium proposed keeping the hardware certificates separate for now so we stay focused on the software. We agreed and asked that they stay in view because no mine will accept the helmet without them.</p></div>
+<div class="box"><b>The prototype</b><p>Imperium asked how soon we can have a prototype of the software. Our answer depends on when we get a sample helmet and its admin login.</p></div>
+<div class="box"><b>Other answers</b><p>Answers received on the other questions are added here.</p></div>
+<h2>New questions from reading the document</h2>
+<p class="lead">These came up when we went through the Interface Document page by page.</p>
+<table class="q"><thead><tr><th>No.</th><th>Question</th><th>Why we ask</th></tr></thead>
+<tr><td class="n">A</td><td class="qq">What do f_id and f_key and bt_beacon in our reply to a location report contain? How do we use them?</td><td>They are in the reply to every report (p19) and are not explained. They may be how the helmet learns which beacons to use.</td></tr>
+<tr><td class="n">B</td><td class="qq">What is the format of ca_backup_data and get_user_fence?</td><td>The document names them and says they can be left alone (p2). We need them for data saved with no signal and for fences.</td></tr>
+<tr><td class="n">C</td><td class="qq">What are Modification Method 1 and 2 and what do we need to do them?</td><td>Solution 2 depends on them (p4). They are never described.</td></tr>
+<tr><td class="n">D</td><td class="qq">Can we change a helmet setting while it is on or only when it starts up?</td><td>The settings come in the start-up reply (p3). Only recording and a few commands are pushed live (p27).</td></tr>
+<tr><td class="n">E</td><td class="qq">What may we put in sip_info if we have no call server yet?</td><td>The login reply cannot leave it empty (p13). We do not want to use the supplier details in the example.</td></tr>
+<tr><td class="n">F</td><td class="qq">Is our model a high-end helmet with a camera?</td><td>Solution 2 and the Wi-Fi commands work only on those (pp4 and 41). The login reply shows the type as cap_type 2 (p12).</td></tr>
+</table>
+</div>
+
+<div class="foot"><span>Confidential</span><span>Smart Helmet</span></div>
+</body></html>

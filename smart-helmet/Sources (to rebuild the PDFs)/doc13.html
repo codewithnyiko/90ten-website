@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Smart Helmet: What We Can Build on Our Own Servers</title>
+<link rel="stylesheet" href="style3.css">
+<style>
+  body { font-size: 10pt; line-height: 1.4; }
+  table { font-size: 9.4pt; }
+  .band h1 { font-size: 22pt; }
+  .band { padding: 9mm 19mm 6mm; margin-bottom: 4mm; }
+  .band .sub { margin-bottom: 4mm; }
+  .band .meta { gap: 6mm; font-size: 8.6pt; flex-wrap: nowrap; white-space: nowrap; }
+  h2 { margin: 10px 0 5px; padding-top: 7px; }
+  table td, table th { padding: 5.5px 9px; }
+  .content { padding-bottom: 10mm; }
+  .pg { page-break-before: always; padding: 16mm 19mm 0; }
+  .box { border: 1px solid #b9bbbe; padding: 8px 12px; margin: 8px 0; font-size: 10pt; }
+  .box b, .col b { font-size: 8.3pt; letter-spacing: .1em; text-transform: uppercase; color: #5d6167; }
+  .box p { margin: 3px 0; }
+  .box.dark { background: #17181a; color: #fff; border-color: #17181a; }
+  .box.dark b { color: #fff; }
+  .lead { color: #5d6167; margin: 2px 0 8px; }
+  .cols { display: flex; gap: 10px; margin: 8px 0; }
+  .col { flex: 1; border-top: 1px solid #17181a; padding-top: 5px; font-size: 9.6pt; }
+  .col ul { margin: 4px 0 0; padding-left: 16px; }
+  .col li { margin: 3px 0; }
+  .dg { margin: 6px 0 8px; }
+  ol.nt { margin: 4px 0 0; padding-left: 0; list-style: none; font-size: 9.6pt; }
+  ol.nt li { margin: 5px 0; padding-left: 26px; position: relative; counter-increment: n; }
+  ol.nt li::before { content: counter(n); position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%; background: #17181a; color: #fff; font-size: 8.5pt; font-weight: 700; text-align: center; line-height: 16px; }
+  ol.nt { counter-reset: n; }
+  .tag { display: inline-block; border: 1px solid #17181a; padding: 1px 8px; font-size: 8.5pt; font-weight: 700; margin-bottom: 4px; }
+  table.q th:nth-child(1) { width: 24%; } table.q th:nth-child(3) { width: 23%; }
+  .band h1 { font-size: 20pt; }
+</style>
+</head><body>
+
+<div class="band">
+  <img class="logo" src="logo-white.svg" alt="90Ten Group">
+  <h1 style="margin-top:7mm">Smart Helmet: What We Can Build on Our Own Servers</h1>
+  <p class="sub">From the supplier's Interface Document. This is a plan and nothing is built yet.</p>
+  <div class="meta">
+    <span>Prepared for <b>Thella Group Services and Imperium Corporate</b></span>
+    <span>Prepared by <b>90Ten Group</b></span>
+    <span>20 October 2026</span>
+    <span>Version 1</span>
+  </div>
+</div>
+
+<div class="content">
+<h2>What runs on our own servers</h2>
+<p class="lead">Once a helmet is told our address it talks only to us. These are the parts we run in South Africa. The supplier's servers are not needed after that.</p>
+<table class="q"><thead><tr><th>Part</th><th>What it does</th><th>When</th></tr></thead>
+<tr><td class="qq"><b>Address server</b></td><td>Tells each helmet where to report. One small web page (pp3 and 4).</td><td>Version 1</td></tr>
+<tr><td class="qq"><b>Live server</b></td><td>Keeps the live connection with every helmet. Takes the login and the reports and the alarms and sends commands back (pp10 to 21).</td><td>Version 1</td></tr>
+<tr><td class="qq"><b>Data store</b></td><td>Keeps every report and alarm so the control room can show history.</td><td>Version 1</td></tr>
+<tr><td class="qq"><b>Control room app</b></td><td>Our own screens for the control room, replacing the supplier screens.</td><td>Version 1</td></tr>
+<tr><td class="qq"><b>File server</b></td><td>Receives the photos and audio and video that helmets upload (pp22 to 34).</td><td>Version 3</td></tr>
+<tr><td class="qq"><b>Video server</b></td><td>Receives live video from a helmet (p37).</td><td>Version 4</td></tr>
+<tr><td class="qq"><b>Call server</b></td><td>Lets the control room talk to a helmet on a video call (p39).</td><td>Version 4</td></tr>
+</table>
+<div class="box dark"><b>One thing to add ourselves</b><p>The helmet logs in with its device number only and there is no password (p10). Our live server will keep a list of allowed device numbers and refuse the rest.</p></div>
+</div>
+
+<div class="pg">
+<h2>What the document lets us build</h2>
+<p class="lead">Each line is something the helmet does and what the document says about it. Page numbers are from the Interface Document.</p>
+<table class="q"><thead><tr><th>What the helmet does</th><th>What the document gives us</th><th>Can we build it?</th></tr></thead>
+<tr><td class="qq"><b>1 Find our server</b></td><td>The helmet asks an address and gets two addresses back. The reply also holds its settings such as alarm temperature and how long before a removed helmet alarms (pp3 to 6).</td><td>Yes</td></tr>
+<tr><td class="qq"><b>2 Log in</b></td><td>The helmet sends its device number and we reply with its details (pp10 to 14). The login uses only the device number so our server must check a list of allowed numbers.</td><td>Yes</td></tr>
+<tr><td class="qq"><b>3 Report position and status every 10 seconds</b></td><td>Position and accuracy and battery and whether it is worn and 4G or Wi-Fi and signal and SIM and memory card and temperature (pp15 to 19). Positions use the Gaode map system (question 3).</td><td>Yes</td></tr>
+<tr><td class="qq"><b>4 Alarms</b></td><td>SOS and fall and helmet off and silent and temperature and fence and near electricity and altitude (p20). The SOS button sends its own message with a call room number (p21).</td><td>Yes</td></tr>
+<tr><td class="qq"><b>5 Bluetooth beacons</b></td><td>Every report lists the Bluetooth devices the helmet hears with signal strength and time (p15). A setting turns scanning on (p6). Alarms exist for entering and leaving a beacon (p20). Three fields in our reply are not explained: f_id and f_key and bt_beacon (p19).</td><td>Partly. We can read and keep the list. How the helmet picks beacons is not explained.</td></tr>
+<tr><td class="qq"><b>6 Data saved with no signal</b></td><td>The document names ca_backup_data as the offline upload and does not describe it (p2).</td><td>Not yet. We need the format.</td></tr>
+<tr><td class="qq"><b>7 Fences</b></td><td>get_user_fence and the fence status fields are named but not described (pp2 and 18).</td><td>Not yet. We need the format.</td></tr>
+</table>
+</div>
+
+<div class="pg">
+<h2>What the document lets us build, continued</h2>
+<table class="q"><thead><tr><th>What the helmet does</th><th>What the document gives us</th><th>Can we build it?</th></tr></thead>
+<tr><td class="qq"><b>8 Commands to the helmet</b></td><td>Start and stop recording and take a photo (p27). Ask for nearby Wi-Fi and tell it to join one (pp41 to 43). Play audio (p25). Change the volume (p11).</td><td>Yes</td></tr>
+<tr><td class="qq"><b>9 Photos and audio and video files</b></td><td>The helmet uploads to our address by HTTP. We can ask for the list of videos it holds and choose which to send (pp22 to 34).</td><td>Yes. It needs our file server.</td></tr>
+<tr><td class="qq"><b>10 Live video</b></td><td>We send a start command with an address to stream to (p37).</td><td>Later. It needs our video server.</td></tr>
+<tr><td class="qq"><b>11 Video calls</b></td><td>The helmet uses a standard call system so it needs a call server (p39).</td><td>Later. It needs our call server.</td></tr>
+<tr><td class="qq"><b>12 Software updates</b></td><td>Our reply to a helmet can hold a new software address and a check number (pp5 and 8). Each helmet asks for itself (p3) so we can decide for each one.</td><td>Yes to send. How a helmet accepts it is questions 8 and 9.</td></tr>
+</table>
+<h2>The order we would build it in</h2>
+<table class="q"><thead><tr><th>Version</th><th>What we build</th><th>What it needs</th></tr></thead>
+<tr><td class="qq"><b>Version 1: surface</b></td><td>Address server and live server and data store. Screens for the overview and one worker and alarms and setup. A Bluetooth test list.</td><td>Nothing. We can start. A real helmet needs its admin login.</td></tr>
+<tr><td class="qq"><b>Version 2: underground</b></td><td>Beacon names and the trail with times. The offline upload.</td><td>Answers to questions 4 and 5.</td></tr>
+<tr><td class="qq"><b>Version 3: control and files</b></td><td>Commands and photos and audio and video and the Wi-Fi setting.</td><td>Our file server.</td></tr>
+<tr><td class="qq"><b>Version 4: live video and calls</b></td><td>Live video and video calls.</td><td>Our video server and call server.</td></tr>
+<tr><td class="qq"><b>Updates</b></td><td>Sending software updates to chosen helmets.</td><td>Answers to questions 8 and 9.</td></tr>
+</table>
+</div>
+
+<div class="foot"><span>Confidential</span><span>Smart Helmet</span></div>
+</body></html>

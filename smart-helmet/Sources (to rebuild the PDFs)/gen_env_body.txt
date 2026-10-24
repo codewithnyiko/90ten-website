@@ -1,0 +1,31 @@
+
+<div class="content">
+<h2>What the existing environment is</h2>
+<p class="lead">v1.00 does not change the helmet. It uses what is already there and changes only where the helmet sends its reports.</p>
+<table class="q"><thead><tr><th>Part</th><th>Who has it</th><th>What we do with it</th></tr></thead><tr><td class="qq"><b>The helmet</b></td><td>The supplier made it. It has a SIM card for 4G.</td><td>Nothing. It stays as it is.</td></tr><tr><td class="qq"><b>The address server</b></td><td>The supplier. It sits at hm.equiinet.cn and is built into the helmet (p3).</td><td>Nothing. The helmet still asks it where to report.</td></tr><tr><td class="qq"><b>The supplier platform</b></td><td>The supplier. We get an admin login for our helmets.</td><td>We log in once and change the two addresses to ours (p3).</td></tr><tr><td class="qq"><b>The mobile network</b></td><td>The SIM card on each helmet.</td><td>Nothing. The helmet reports over 4G on the surface.</td></tr><tr><td class="qq"><b>Our servers</b></td><td>Ours. They run in South Africa.</td><td>They receive the reports and keep them and show them.</td></tr></table>
+<div class="box dark"><b>What changes and what does not</b><p>What changes is the two addresses the helmet is told to report to. What does not change is the helmet itself and its software and the supplier address server it asks first.</p></div>
+</div>
+
+<div class="pg">
+<h2>How a helmet reaches our server</h2>
+<p class="lead">The helmet first asks the supplier's address server where to report. The answer is our server. From then on the reports go to us.</p>
+<div class="dg">${dgEnv}</div>
+<table class="q"><thead><tr><th>No.</th><th>What happens</th><th>In the supplier document</th></tr></thead><tr><td class="n">1</td><td class="qq">The helmet switches on and asks the address server where to report.</td><td>p3</td></tr><tr><td class="n">2</td><td class="qq">The address server answers with the two addresses we set. They are ours.</td><td>pp3 and 4</td></tr><tr><td class="n">3</td><td class="qq">The helmet opens a live link to our live server and logs in with its device number.</td><td>p10</td></tr><tr><td class="n">4</td><td class="qq">It sends a report every 10 seconds with its position and battery and the Bluetooth devices it hears.</td><td>pp15 to 19</td></tr><tr><td class="n">5</td><td class="qq">If an alarm happens it sends the alarm at once.</td><td>pp20 and 21</td></tr><tr><td class="n">6</td><td class="qq">Our data store keeps every report and our screens show it.</td><td>Ours</td></tr></table>
+</div>
+
+<div class="pg">
+<h2>A shift from start to end</h2>
+<p class="lead">What happens in v1.00 during one shift for one worker.</p>
+<table class="q"><thead><tr><th>When</th><th>What happens</th><th>Where</th></tr></thead><tr><td class="qq"><b>Before the shift</b></td><td>At the lamp room the worker is linked to a helmet and a shift. The screen shows if the helmet is seen and its battery.</td><td>Our sign in screen</td></tr><tr><td class="qq"><b>Shift starts</b></td><td>The helmet is switched on and asks where to report and logs in to our server.</td><td>Helmet and our live server</td></tr><tr><td class="qq"><b>During the shift</b></td><td>The helmet reports every 10 seconds. The control room sees the worker on the map and who is seen and who is not.</td><td>Our overview and shift view</td></tr><tr><td class="qq"><b>An alarm</b></td><td>A fall or an SOS reaches our server at once. The control room sees who and where and when. A video call needs a call server so it comes in a later version.</td><td>Our alarm screen</td></tr><tr><td class="qq"><b>A headcount</b></td><td>The control room lists everyone signed in by where they were last seen and ticks people safe.</td><td>Our headcount screen</td></tr><tr><td class="qq"><b>Shift ends</b></td><td>The worker hands the helmet back and it is returned in the sign in screen. The history keeps who had it.</td><td>Our sign in screen</td></tr></table>
+<div class="box"><b>Not in v1.00</b><p>The underground trail and data saved with no signal and fences and live video and video calls. They come in later versions.</p></div>
+</div>
+
+<div class="pg">
+<h2>What we depend on</h2>
+<table class="q"><thead><tr><th>What</th><th>Why</th><th>Status</th></tr></thead><tr><td class="qq"><b>A sample helmet</b></td><td>We need a sample helmet in hand to build the application because we have to test it. Without one we can only test with a pretend helmet.</td><td>Needed first</td></tr><tr><td class="qq"><b>The admin login on the supplier platform</b></td><td>It is how we change the two addresses on the supplier platform (p3).</td><td>Needed</td></tr><tr><td class="qq"><b>The supplier address server being reachable</b></td><td>The helmet asks it first every time it starts. If it cannot be reached the helmet may not learn where to report. Changing the address inside the helmet later removes this.</td><td>To confirm</td></tr><tr><td class="qq"><b>Secure connections</b></td><td>The addresses in the example are plain http and ws (p4). We need to know if the helmet accepts secure addresses.</td><td>To confirm</td></tr><tr><td class="qq"><b>The SIM card data</b></td><td>The helmet reports over 4G. Someone pays for the data.</td><td>To confirm</td></tr><tr><td class="qq"><b>The map</b></td><td>Positions use the Gaode system (question 3). We test with a helmet.</td><td>To confirm</td></tr></table>
+<h2>What could go wrong and what we do</h2>
+<table class="q"><thead><tr><th>What</th><th>What we do</th><th>When</th></tr></thead><tr><td class="qq"><b>The supplier address server is down</b></td><td>The helmet may not report. This is the reason to move to our own address server.</td><td>Before wide use</td></tr><tr><td class="qq"><b>A helmet is not in our allowed list</b></td><td>Our live server refuses it. It shows in the shift view as a helmet nobody signed for.</td><td>v1.00</td></tr><tr><td class="qq"><b>A helmet has no signal</b></td><td>It shows as not seen with the last place and time. On the surface this is a prompt to check.</td><td>v1.00</td></tr><tr><td class="qq"><b>Underground there is no signal</b></td><td>We cannot see the worker. Data saved with no signal is not described yet.</td><td>v2.00</td></tr></table>
+</div>
+
+<div class="foot"><span>Confidential</span><span>Smart Helmet</span></div>
+</body></html>

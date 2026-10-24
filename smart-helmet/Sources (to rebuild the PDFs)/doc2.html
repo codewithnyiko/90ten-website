@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Smart Helmet: What It Can Do and What Is Not Clear</title>
+<link rel="stylesheet" href="style.css"></head><body>
+
+<div class="head">
+  <img src="file:///C:/Code/Kereke/docs/brand/90ten-group-final-jost-beside-red9-light.svg" alt="90Ten Group">
+  <div class="meta">Prepared for Thella Group Services<br>and Imperium Corporate<br>20 October 2026</div>
+</div>
+
+<h1>Smart Helmet: What It Can Do and What Is Not Clear</h1>
+<p class="by">Prepared by 90Ten Group</p>
+
+<h2>In short</h2>
+<p>The documents describe a helmet with a camera and alarms that can read small signal devices called beacons. But several details we need are not stated. We split what we read into three groups.</p>
+<p class="label">Clearly stated</p>
+<ul>
+<li>It records video and takes photos, and keeps them on a memory card.</li>
+<li>It has alarms for SOS, a fall or knock, no movement, the helmet being taken off, heat and a low battery.</li>
+<li>It connects to the internet with a SIM card or Wi-Fi, and it can read beacons.</li>
+<li>It can make a video call to a control room, and play voice messages sent to it.</li>
+</ul>
+<p class="label">Described, but not clear</p>
+<ul>
+<li>How it uses beacons to say where a worker is.</li>
+<li>What it does when there is no signal.</li>
+<li>How good the video is in the dark, and how long the battery lasts.</li>
+<li>Which version of Android (the phone system) is inside, and who sends its updates.</li>
+</ul>
+<p class="label">Not stated at all</p>
+<ul>
+<li>Whether it can read any beacon or only certain kinds, how many it can read at once, and how far away it can read them.</li>
+<li>Any approval for South African use.</li>
+</ul>
+<p>The sections below give the page references. "Spec Sheet", "Brochure", "User Manual" and "Interface Document" are the four files we received.</p>
+
+<h2>Where the worker is</h2>
+<p>Outdoors the helmet finds its position by GPS. Underground it can only read Bluetooth beacons, and the documents do not say which ones.</p>
+<p class="ex"><strong>Example:</strong> A beacon is like a street sign fixed to a tunnel wall that says "Level 2, west tunnel". The helmet reads the sign as the worker walks past. If a worker goes missing, the last sign they passed tells rescuers where to start looking.</p>
+<p class="label">What the documents say</p>
+<ul>
+<li>Outdoors, it finds its position using GPS and a Chinese satellite system called Beidou (Spec Sheet p2). In an outdoor test, a map showed the helmet's position.</li>
+<li>It can read beacons to work out where it is, and it can sound an alarm on the helmet when a worker enters or leaves a beacon area (Spec Sheet p2; Brochure p2).</li>
+<li>Every 10 seconds it sends the list of Bluetooth devices it can hear, and how strong each signal is (Interface Document p15).</li>
+<li>The control room can be warned when a worker enters or leaves a beacon area (Interface Document p20). Beacon reading can be switched on or off (p6).</li>
+<li>It advertises "tracking playback", which replays where a helmet has been (Brochure p1). The Spec Sheet says the control room software has to provide this (p5), so it depends on the system behind the helmet.</li>
+</ul>
+<p class="label">What is not clear</p>
+<ul>
+<li>Whether it can read any beacon or only certain makes and formats. Beacons come from many makers in different formats, and the documents name none.</li>
+<li>How we tell it which beacons to use, for example by their address or name. The example report on page 15 lists phones and headphones too, so it probably hears everything.</li>
+<li>How many beacons it can read at once, and how far away it can read them.</li>
+<li>How the beacon areas for the enter and leave alarms are set up. This is mentioned on page 2 only, and marked "can be left unprocessed".</li>
+<li>Whether the helmet works out its own place, or only reports what it hears so that a computer decides.</li>
+<li>Whether it can read beacons that we choose, from any maker.</li>
+</ul>
+
+<h2>Alarms and warnings</h2>
+<p>The helmet has the alarms a missing person case needs, but the documents do not say how they behave with no signal.</p>
+<p class="ex"><strong>Example:</strong> A smoke alarm in a house sounds in the room, and a good one also phones the owner. The helmet should do the same: sound on the helmet, and report to the control room.</p>
+<p class="label">What the documents say</p>
+<ul>
+<li>Alarm types: SOS, a fall or knock, no movement, helmet taken off, high temperature, low battery, entering or leaving an area, and entering or leaving a beacon (Spec Sheet pp5 to 6; Interface Document p20).</li>
+<li>Some alarms sound on the helmet itself: no movement, helmet off, low battery below 5%, impact and temperature (Spec Sheet pp5 to 6).</li>
+<li>The times can be set. The example settings show 45 minutes for the no movement alarm and 10 seconds for the helmet off delay (Interface Document pp4 and 6).</li>
+<li>Pressing SOS starts a video call with the control room (Spec Sheet p7; Interface Document p21).</li>
+</ul>
+<p class="label">What is not clear</p>
+<ul>
+<li>Whether an SOS or a fall alarm raised with no signal is saved and sent later, or lost.</li>
+<li>Whether the SOS call works without the supplier's call computer.</li>
+<li>How loud the alarm sound is underground. No figure is given.</li>
+<li>Whether the no movement time can be set much shorter for a mine.</li>
+<li>Which alarms are switched on in our sample helmets.</li>
+</ul>
+
+<h2>Camera and proof</h2>
+<p>The helmet records and stores video on its own, but the documents say little about how good the picture is in the dark.</p>
+<p class="ex"><strong>Example:</strong> It is like a car dash camera. It records everything onto a memory card, and afterwards you can ask for the part you need.</p>
+<p class="label">What the documents say</p>
+<ul>
+<li>The standard camera takes sharp full HD video (21 megapixels, "1080") and sees 80 degrees in front of it, a bit like a phone camera. It focuses fast and can read QR codes. An optional camera sees wider, 137 degrees (Spec Sheet p3).</li>
+<li>It records onto memory cards of up to 512 GB. There are two card slots, and the Brochure says the cards are protected by a lock called encryption (Spec Sheet p2; Brochure p1).</li>
+<li>The control room can ask a helmet for a list of its videos by time, then ask for chosen ones to be sent (Interface Document pp31 to 33).</li>
+<li>Photos can be taken by a button or by a command from the control room (User Manual p7; Interface Document pp27 to 28).</li>
+<li>It can show live video where there is a network (Interface Document p37).</li>
+</ul>
+<p class="label">What is not clear</p>
+<ul>
+<li>How the picture looks in a dark tunnel. Nothing is said about low light. The User Manual labels an "infrared laser" next to the camera (p5), but does not explain it.</li>
+<li>How many hours of video fit on a card, and how long the battery lasts while recording.</li>
+<li>Whether the video shows the date, time and place, which matters as proof.</li>
+<li>Whether we can tell that a video was changed. A check number is listed for each file, but the documents do not say what it is for.</li>
+<li>Whether video keeps recording during an SOS call. The Spec Sheet says it does not (p7), which is when proof matters most.</li>
+<li>Which camera, the standard or the wider optional one, is on our sample helmets.</li>
+</ul>
+
+<h2>Messages, calls and connection</h2>
+<p>The helmet talks to a control room only by 4G or Wi-Fi, and some features need extra computers that the documents do not fully describe.</p>
+<p class="ex"><strong>Example:</strong> Think of a mobile phone. It works wherever there is a signal, and it can keep things on the phone when there is none. It cannot make a call without a network.</p>
+<p class="label">What the documents say</p>
+<ul>
+<li>It connects to the internet by 4G with two SIM cards (the second takes over if the first fails) and by Wi-Fi (Brochure p1; Spec Sheet p2). It also has Bluetooth, for beacons, a headset and a bracelet.</li>
+<li>The worker can hold a button to record a voice message, and the control room can send voice messages to the helmet (User Manual p7; Interface Document pp22 to 26).</li>
+<li>The control room can start a video call (Spec Sheet p7). A video call needs a separate computer to run the calls (Interface Document p39).</li>
+<li>The control room can tell the helmet which Wi-Fi to join (Interface Document pp41 to 43).</li>
+<li>By default, it reports every 10 seconds (Interface Document p15).</li>
+<li>It has a voice assistant that can switch the light on, take photos and start a call by voice (Brochure p1; Spec Sheet p10).</li>
+</ul>
+<p class="label">What is not clear</p>
+<ul>
+<li>Anything about connecting where there is no 4G or Wi-Fi, such as a relay or a long range radio. None is mentioned. The settings mention a "DMR mode", which is a two-way radio setting, but the Spec Sheet shows no such radio (Interface Document p7).</li>
+<li>Which 4G channels (called "bands") it supports. Phone networks use different channels in different countries, and the list in the documents looks mixed up (Spec Sheet pp1 to 2).</li>
+<li>Whether it can remember several Wi-Fi networks and move between them as a worker walks, and how fast it reconnects.</li>
+<li>Who provides the computers that run the calls and the live video.</li>
+<li>Whether the reporting time can be changed. The documents disagree (Interface Document p15; Spec Sheet p4).</li>
+<li>Which languages the voice assistant understands. The Brochure says "Chinese &amp; English" (p3), but the Spec Sheet says it wakes with a Chinese phrase that can be changed to English (p3).</li>
+</ul>
+
+<h2>The system inside the helmet</h2>
+<p>The helmet runs Android 10, an older version of the system used in phones, and the documents do not say who looks after its updates.</p>
+<p class="ex"><strong>Example:</strong> Think of a mobile phone. It gets updates from time to time. When a phone gets too old, the maker stops sending them. It still works, but new apps stop working, and it is easier for bad people to break into. The helmet runs on the same kind of system as a phone, and it is an older version.</p>
+<p class="label">What the documents say</p>
+<ul>
+<li>The system is Android 10 (Spec Sheet p1; Brochure p2). A helmet advert we saw said Android 11.</li>
+<li>The chip inside, which is the helmet's brain, is a MediaTek MT8768, with 4 GB of working memory and 64 GB of storage (Spec Sheet p1).</li>
+<li>When the helmet starts, it asks a server for its settings (Interface Document p3). The answer can include two kinds of update: one for the helmet's app, and one for the Android system itself. Each comes with a download address and a check number that shows the file arrived complete (pp5 and 8). In the example, both updates are switched off.</li>
+</ul>
+<p class="label">What is not clear</p>
+<ul>
+<li>Which version is really inside, Android 10 or 11.</li>
+<li>Whether an update needs a code, or a secret stamp (a "digital signature") that proves it really comes from the supplier. The documents list only a check number (MD5), which shows that a download is complete, not that it is genuine.</li>
+<li>Who controls the updates once the helmet points to our own computer, the supplier or us. Whoever answers the helmet's settings call can send it new software.</li>
+<li>How often updates come, what they contain, and whether they install by themselves.</li>
+<li>Whether Google still sends security fixes for it. We believe it no longer does for Android 10, so the supplier would have to supply them.</li>
+<li>Whether other software can be installed, and whether the helmet can be moved to a newer Android.</li>
+<li>How long the supplier will keep supporting this model.</li>
+</ul>
+<p>This matters because the helmet carries video, names and positions, and whoever sends it software decides what it does.</p>
+
+<h2>Power, toughness and optional extras</h2>
+<p>The helmet is light for what it carries, but its battery time and its fitness for damp, dusty work underground are not shown.</p>
+<p class="label">What the documents say</p>
+<ul>
+<li>It weighs 650 g. The battery can be taken out and is about the size of a large phone battery (5,000 mAh). An optional "explosion-proof" battery is smaller (3,800 mAh) (Spec Sheet pp1 and 2). It charges by cable or by magnet.</li>
+<li>It claims to resist dust and water ("on the basis of IP66", a standard rating) and to survive a 2 metre drop (Spec Sheet p1).</li>
+<li>It works from -10 to 60 degrees and in 10 to 60% humidity (Spec Sheet p4).</li>
+<li>Optional extras: a gas sensor (one gas at a time), heart rate and body temperature through a bracelet, a climbing sensor, a near power line alarm, face recognition, and more exact positioning (Spec Sheet pp2, 8 and 9).</li>
+</ul>
+<p class="label">What is not clear</p>
+<ul>
+<li>How many hours the battery lasts with 4G, GPS and video running.</li>
+<li>What the "explosion-proof" claim is based on. We have seen no certificate.</li>
+<li>How the helmet copes above 60% humidity. The User Manual tells users to keep it away from damp, not to wash it, and not to modify it (p8).</li>
+<li>Which extras are fitted on our sample helmets. The gas sensor is marked "software requires pre-research" (Spec Sheet p9).</li>
+<li>Face recognition and body readings collect personal information, which brings privacy rules.</li>
+</ul>
+<p>Gas detection is optional and is not part of what we are asking about now.</p>
+
+<h2>What we need answered</h2>
+<p>These twelve answers would close most of the gaps above. A short answer is fine, including "it does not do that".</p>
+<ol>
+<li>Can the helmet read any Bluetooth beacon, or only certain makes or formats? Please list any it cannot read.</li>
+<li>How do we tell the helmet which beacons to use, for example by their address or name? How many can it read at once, and from how far?</li>
+<li>How are the beacon areas for the enter and leave alarms set up?</li>
+<li>With no signal, are alarms and positions saved and sent later? For how long?</li>
+<li>Does video keep recording during an SOS call?</li>
+<li>How good is the video in the dark? Please send a sample recorded in a dark place. Does the video show date, time and place?</li>
+<li>How many hours of video fit on a card, and how long does the battery last while recording?</li>
+<li>Does the helmet send information only by 4G and Wi-Fi? Is there a radio option (the "DMR mode", a two-way radio setting) for places with neither?</li>
+<li>Which 4G channels (bands) are supported?</li>
+<li>Which camera and which extras are fitted on our sample helmets?</li>
+<li>Which version of Android is inside, who sends its updates, and can we control them?</li>
+<li>Does the helmet need a code, a password or a secret stamp (digital signature) before it accepts an update? What stops anyone else from sending it software?</li>
+</ol>
+<p>We will update this document as answers arrive.</p>
+
+<h2>Words used in this document</h2>
+<p>These are the technical words, in plain language.</p>
+<ul>
+<li><strong>Beacon:</strong> a small device fixed to a wall that sends out a short signal saying where it is, like a sign that says "Main hall" or "Kitchen". The helmet reads it as a worker walks past.</li>
+<li><strong>Bluetooth:</strong> the short range signal a phone uses to connect to a headset or a speaker. The helmet uses it to read beacons.</li>
+<li><strong>4G and Wi-Fi:</strong> the two ways a phone gets on the internet: through the mobile network with a SIM card (4G), or through a router (Wi-Fi). The helmet can use both.</li>
+<li><strong>GPS:</strong> satellites that tell a device where it is on the ground. It works outdoors, but not underground.</li>
+<li><strong>Android:</strong> the system that runs inside most phones. The helmet runs on it too.</li>
+<li><strong>Server:</strong> a computer that receives information from the helmets and keeps it. Think of the church office, where all the reports are handed in.</li>
+<li><strong>Control room:</strong> the place where someone watches the helmets and answers the alarms.</li>
+<li><strong>Certificate or approval:</strong> a paper from an official body showing that a product was tested, like the certificate that says a church hall is safe for a crowd.</li>
+<li><strong>ICASA:</strong> the government body that controls radio signals in South Africa.</li>
+<li><strong>SOS:</strong> the emergency button.</li>
+</ul>
+
+</body></html>

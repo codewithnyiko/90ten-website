@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Smart Helmet: Questions and How It Should Work</title>
+<link rel="stylesheet" href="style3.css">
+<style>
+  body { font-size: 10pt; line-height: 1.4; }
+  table { font-size: 9.4pt; }
+  .band h1 { font-size: 22pt; }
+  .band { padding: 9mm 19mm 6mm; margin-bottom: 4mm; }
+  .band .sub { margin-bottom: 4mm; }
+  .band .meta { gap: 6mm; font-size: 8.6pt; flex-wrap: nowrap; white-space: nowrap; }
+  h2 { margin: 10px 0 5px; padding-top: 7px; }
+  table td, table th { padding: 5.5px 9px; }
+  .content { padding-bottom: 10mm; }
+  .pg { page-break-before: always; padding: 16mm 19mm 0; }
+  .box { border: 1px solid #b9bbbe; padding: 8px 12px; margin: 8px 0; font-size: 10pt; }
+  .box b, .cap b { font-size: 8.3pt; letter-spacing: .1em; text-transform: uppercase; color: #5d6167; }
+  .box p, .cap p { margin: 3px 0; }
+  .box.dark { background: #17181a; color: #fff; border-color: #17181a; }
+  .box.dark b { color: #fff; }
+  .ad { font-size: 8.8pt; margin-top: 4px; } .ad td { padding: 3px 6px 3px 0; border: 0; vertical-align: top; } .ad td:first-child { width: 150px; color: #5d6167; }
+  .lead { color: #5d6167; margin: 2px 0 8px; }
+  .cap { display: flex; gap: 10px; margin: 4px 0 14px; font-size: 9.3pt; }
+  .cap > div { flex: 1; border-top: 1px solid #17181a; padding-top: 4px; }
+  .dg { margin: 6px 0 2px; }
+  h3 { font-size: 11.5pt; margin: 14px 0 0; }
+</style>
+</head><body>
+
+<div class="band">
+  <img class="logo" src="logo-white.svg" alt="90Ten Group">
+  <h1 style="margin-top:7mm">Smart Helmet: Questions and How It Should Work</h1>
+  <p class="sub">What the helmet supports, why we ask and how it could work in different mines.</p>
+  <div class="meta">
+    <span>Prepared for <b>Thella Group Services and Imperium Corporate</b></span>
+    <span>Prepared by <b>90Ten Group</b></span>
+    <span>20 October 2026</span>
+    <span>Version 1</span>
+  </div>
+</div>
+
+<div class="content">
+<h2>Our own server and documentation</h2>
+<table class="q"><thead><tr><th>No.</th><th>Question</th><th>Why we ask</th></tr></thead>
+<tr><td class="n">1</td><td class="qq">Can the helmet talk only to our own server and never to the supplier's computers in China? Can it report straight to our server or must it ask an address server first? How do we set that up?</td><td>The helmet now asks hm.equiinet.cn for its settings (Interface Document p3). The supplier says this can be changed.</td></tr>
+<tr><td class="n">2</td><td class="qq">Is there an SDK or written list of the messages the helmet sends and accepts? How will we know when it changes?</td><td>We only have a PDF with no date. We want to talk to the helmet from our own server, not through the supplier's platform. If they have no online list we will write our own. See below.</td></tr></table>
+
+<h2>How the helmet talks to a server</h2>
+<svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Calibri, Arial, sans-serif">
+<defs><marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#17181a" stroke-width="1.5"/></marker></defs>
+<rect x="0" y="0" width="680" height="250" fill="#fff" stroke="#b9bbbe"/>
+<g transform="translate(90,125)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,5 A11 11 0 0 1 11,5 Z M-14,5 H14"/><circle cx="0" cy="-2" r="2.4"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Helmet</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">switches on</text></g>
+<g transform="translate(390,45)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Address server</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">hm.equiinet.cn</text></g>
+<g transform="translate(390,125)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Their server</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">where it reports now</text></g>
+<g transform="translate(390,205)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Our server</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">what we want</text></g>
+<path d="M134,100 L346,55" fill="none" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar6)" marker-start="url(#ar6)"/>
+<text x="175" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="#17181a" stroke="#fff" stroke-width="3" paint-order="stroke">1 The helmet asks: where do I report?</text>
+<text x="175" y="57" text-anchor="middle" font-size="9" font-weight="700" fill="#17181a" stroke="#fff" stroke-width="3" paint-order="stroke">2 The server answers: report here</text>
+<line x1="134" y1="125" x2="346" y2="125" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar6)"/>
+<text x="240" y="114" text-anchor="middle" font-size="9" font-weight="700" fill="#17181a" stroke="#fff" stroke-width="3" paint-order="stroke">3a Today: reports to their server</text>
+<path d="M134,150 L346,195" fill="none" stroke="#17181a" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ar6)"/>
+<text x="215" y="207" text-anchor="middle" font-size="9" font-weight="700" fill="#17181a" stroke="#fff" stroke-width="3" paint-order="stroke">3b What we want: reports to our server</text>
+<g font-size="9" fill="#17181a">
+<text x="448" y="42">Built into the helmet. It gives back two</text><text x="448" y="54">addresses, one for files and one for the live link.</text>
+<text x="448" y="122">Where the helmet reports today, unless</text><text x="448" y="134">the address is changed.</text>
+<text x="448" y="202">Possible if the address is changed. Then</text><text x="448" y="214">the helmet would report to us.</text></g></svg>
+
+<div class="box"><b>In plain words</b><p>Think of a child who must hand a note to a teacher every morning. The child's card says: <i>"First go to the head office and ask which teacher to give it to."</i> The head office answers with a name and the child hands over the note.</p><p>That is how the helmet works now. The head office is the address server and the teacher is the server it reports to. Both are the supplier's, as far as we can tell.</p><p><b style="letter-spacing:0;text-transform:none;font-size:inherit;color:inherit">Idea 1:</b> we change the card so the head office is ours. The child still asks first and our office says: "Give it to our teacher."<br><b style="letter-spacing:0;text-transform:none;font-size:inherit;color:inherit">Idea 2:</b> we write our teacher's name straight on the card. The child goes to our teacher and asks nobody. We do not know if the helmet can do this, so we ask.</p></div>
+</div>
+
+<div class="pg">
+<h2>Is the helmet forced to use their server?</h2>
+<p class="lead">We do not know yet. This is what the Interface Document says (pp3 and 4).</p>
+<div class="box"><b>The addresses in the document</b>
+<table class="ad"><tr><td>Address server, asked first</td><td>https://hm.equiinet.cn/api/index.php?ctl=config&amp;act=get_config</td></tr>
+<tr><td>Files and photos (api_url)</td><td>http://hm.equiinet.cn/api/ (the document's example)</td></tr>
+<tr><td>Live link (ws_url)</td><td>ws://47.106.114.236:9511 (the document's example)</td></tr>
+<tr><td>Ours would be</td><td>an address of our own, in South Africa</td></tr></table></div>
+<div class="box"><b>Way 1: change the addresses on their platform</b><p>The helmet still asks their address server first. We only change the answer it gets, in their control platform. We would still depend on them.</p></div>
+<div class="box"><b>Way 2: change the address inside the helmet</b><p>The helmet asks our address server instead and we run it. The document says this works only on helmets with a camera and that a helmet without one needs special software put on it. It does not explain how. The two methods it mentions, "Modification Method 1 and 2", are never described.</p></div>
+<h2>What "their API" means and why we avoid it</h2>
+<div class="box"><b>API</b><p>Think of a menu in a restaurant. You can only order what is on the menu and the kitchen gives you what you ordered. An API is a menu for a computer: a list of what you can ask it and what it gives back.</p></div>
+<div class="box"><b>Their API</b><p>Their ready-made server and its menu. If we use it, we depend on their server and on how they run it. We want to avoid that.</p></div>
+<div class="box"><b>The messages the helmet speaks</b><p>This is the other thing and it is what we need. It is the list of what the helmet says (where I am, I need help) and what it understands (take a photo). If we have the full list, any server can understand the helmet, including ours.</p></div>
+<div class="box"><b>SDK</b><p>A starter box that comes with the list, like a LEGO set with the pieces and the instructions. It helps us build faster. If they do not have one we will build our own API on our server and give it a version and a date, so everyone can see when something changes.</p></div>
+<div class="box dark"><b>What we need from the supplier</b><p>1. The steps to change the address inside the helmet ourselves or to make it report straight to our server, for each helmet we buy.</p><p>2. The full list of messages between the helmet and a server, with examples. If they have no online version we will keep our own, with a version and date.</p><p>3. A promise that nothing else needs their servers to work.</p></div>
+</div>
+
+<div class="pg">
+<h2>Beacons and data from underground</h2>
+<table class="q"><thead><tr><th>No.</th><th>Question</th><th>Why we ask</th></tr></thead>
+<tr><td class="n">3</td><td class="qq">The documents say the helmet gives its position in a Chinese map system (Gaode). Can it send normal GPS positions that fit maps in South Africa? Can we use our own map and does anything need their map?</td><td>Gaode positions are moved slightly on purpose, so they land in the wrong place on a normal map (Interface Document pp19, 20 and 30). The Brochure says Google Maps.</td></tr>
+<tr><td class="n">4</td><td class="qq">Can the helmet read any Bluetooth beacon or only certain makes? Can we tell it which beacons to use, how many and from how far?</td><td>We must buy the right beacons. The documents do not say which ones work (Spec Sheet p2).</td></tr>
+<tr><td class="n">5</td><td class="qq">Where there is no signal, does the helmet save the beacons it passes with the time and send them later when it has signal?</td><td>Underground there is often no signal. The Spec Sheet says positions are saved (p5) but not how.</td></tr>
+<tr><td class="n">6</td><td class="qq">Do alarms such as SOS, a fall or the helmet coming off still work with no signal? Are they saved and sent first when signal returns?</td><td>The Interface Document lists many alarm types. It does not say what happens to them with no signal.</td></tr>
+<tr><td class="n">7</td><td class="qq">Can we set a warning for when a worker goes into or out of an area marked by a beacon, such as near blasting?</td><td>The Interface Document lists alarms for entering and leaving a beacon area. We want to use this for danger zones.</td></tr></table>
+<h2>Updates, certificates, repairs and the lamp</h2>
+<table class="q"><thead><tr><th>No.</th><th>Question</th><th>Why we ask</th></tr></thead>
+<tr><td class="n">8</td><td class="qq">Who sends software updates to the helmets and how? Is an update sent to all connected helmets at once or can we choose which ones get it and test it on one first? How will we know what changed?</td><td>An update can change what the helmet sends (Interface Document p2) and that could break our software. The documents list only a check number for an update (pp5 and 8).</td></tr>
+<tr><td class="n">9</td><td class="qq">Can we send our own updates from our own server? Can we build our own software on top of the existing helmet software? Does an update need a secret stamp (a digital signature)?</td><td>We want control of what runs on the helmet. It runs Android (Spec Sheet p1) so we want to know if our own app can run beside theirs and whether the helmet only accepts software from them.</td></tr>
+<tr><td class="n">10</td><td class="qq">Which certificates does the helmet have for South Africa? Can you send us a copy of each?</td><td>Mines will ask for proof before any helmet goes underground. We have seen none yet.</td></tr>
+<tr><td class="n">11</td><td class="qq">The helmet is made abroad. Can the supplier send spare parts, such as a camera that is broken or not clear, a battery or a shell? Can a local technician fit them? Can we have a repair guide and the warranty terms?</td><td>We cannot send a helmet overseas every time something breaks. The documents show no repair or parts information.</td></tr>
+<tr><td class="n">12</td><td class="qq">Can a mine's own lamp be fixed to the helmet? Is there a clip, what does it cost to make one and does the helmet have its own light?</td><td>Mines already own lamps. We want to keep them.</td></tr></table>
+<h2>Camera, battery and connection</h2>
+<table class="q"><thead><tr><th>No.</th><th>Question</th><th>Why we ask</th></tr></thead>
+<tr><td class="n">13</td><td class="qq">How well does the camera see in the dark? Can the helmet send video while an SOS call is open?</td><td>The control room needs to see what is happening at the time of an alarm.</td></tr>
+<tr><td class="n">14</td><td class="qq">How many hours does the battery last with the camera on? How long can the memory card record?</td><td>A shift is long. The helmet must last it.</td></tr>
+<tr><td class="n">15</td><td class="qq">Can the helmet join Wi-Fi points on its own, remember several and work on Wi-Fi alone with no SIM card?</td><td>Some mines have no Wi-Fi and some have it only in a few places.</td></tr></table>
+</div>
+
+<div class="pg">
+<h2>How we think it should work</h2>
+<p class="lead">Each mine is different, but the idea is the same. A beacon says where the worker is, the helmet notes it with the time and sends it to our server when it has signal and the control room sees the trail.</p>
+<div class="dg"><svg viewBox="0 0 680 210" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Calibri, Arial, sans-serif">
+<defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#17181a" stroke-width="1.5"/></marker></defs><rect x="0" y="0" width="388" height="210" fill="#eceded"/>
+<rect x="388" y="0" width="292" height="210" fill="#fff" stroke="#b9bbbe"/>
+<text x="10" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">UNDERGROUND</text>
+<text x="398" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">SURFACE</text>
+<g transform="translate(50,120)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle r="3.5"/><path d="M-9,-6 A11 11 0 0 0 -9,6 M9,-6 A11 11 0 0 1 9,6 M-13,-9 A16 16 0 0 0 -13,9 M13,-9 A16 16 0 0 1 13,9"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Beacon</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">on the tunnel wall</text></g>
+<g transform="translate(185,120)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,5 A11 11 0 0 1 11,5 Z M-14,5 H14"/><circle cx="0" cy="-2" r="2.4"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Helmet</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">notes each beacon</text></g>
+<g transform="translate(320,120)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,-3 A15 15 0 0 1 11,-3 M-7,1 A9.5 9.5 0 0 1 7,1"/><circle cx="0" cy="6" r="1.8"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Signal</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">Wi-Fi point or 4G</text></g>
+<g transform="translate(455,120)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Our server</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in South Africa</text></g>
+<g transform="translate(590,120)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-12" y="-10" width="24" height="15" rx="1.5"/><path d="M0,5 V10 M-6,10 H6"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Control room</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">trail, last place</text></g>
+<line x1="94" y1="120" x2="139" y2="120" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar1)"/><line x1="229" y1="120" x2="274" y2="120" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar1)"/><line x1="364" y1="120" x2="409" y2="120" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar1)"/><line x1="499" y1="120" x2="544" y2="120" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar1)"/>
+<text x="116" y="108" text-anchor="middle" font-size="8.5" fill="#17181a">Bluetooth</text>
+<text x="386" y="108" text-anchor="middle" font-size="8.5" fill="#17181a">only to us</text></svg></div>
+<h3>Mine 1: mobile signal at the shaft and a few Wi-Fi points</h3>
+<div class="dg"><svg viewBox="0 0 680 230" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Calibri, Arial, sans-serif">
+<defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#17181a" stroke-width="1.5"/></marker></defs><rect x="0" y="0" width="388" height="230" fill="#eceded"/>
+<rect x="388" y="0" width="292" height="230" fill="#fff" stroke="#b9bbbe"/>
+<text x="10" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">UNDERGROUND</text>
+<text x="398" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">SURFACE</text>
+<g transform="translate(50,135)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle r="3.5"/><path d="M-9,-6 A11 11 0 0 0 -9,6 M9,-6 A11 11 0 0 1 9,6 M-13,-9 A16 16 0 0 0 -13,9 M13,-9 A16 16 0 0 1 13,9"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Beacons</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in the tunnel</text></g>
+<g transform="translate(185,135)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,5 A11 11 0 0 1 11,5 Z M-14,5 H14"/><circle cx="0" cy="-2" r="2.4"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Helmet</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">saves the trail</text></g>
+<g transform="translate(320,135)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,-3 A15 15 0 0 1 11,-3 M-7,1 A9.5 9.5 0 0 1 7,1"/><circle cx="0" cy="6" r="1.8"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Wi-Fi point</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">at the station</text></g>
+<g transform="translate(455,62)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0,-9 L-6,11 M0,-9 L6,11 M-4,3 H4 M-2.4,-3 H2.4"/><path d="M-9,-8 A9 9 0 0 0 -9,-1 M9,-8 A9 9 0 0 1 9,-1"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Mobile mast</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">surface, 4G SIM</text></g>
+<g transform="translate(455,175)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Our server</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in South Africa</text></g>
+<g transform="translate(590,175)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-12" y="-10" width="24" height="15" rx="1.5"/><path d="M0,5 V10 M-6,10 H6"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Control room</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">trail, last place</text></g>
+<line x1="94" y1="135" x2="139" y2="135" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar2)"/><line x1="229" y1="135" x2="274" y2="135" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar2)"/>
+<line x1="364" y1="155" x2="411" y2="170" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar2)"/>
+<path d="M185,96 Q290,12 411,58" fill="none" stroke="#17181a" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ar2)"/>
+<text x="285" y="38" text-anchor="middle" font-size="8.8" fill="#17181a">on the surface, 4G</text>
+<line x1="455" y1="99" x2="455" y2="137" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar2)"/>
+<line x1="499" y1="175" x2="544" y2="175" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar2)"/></svg></div>
+<div class="cap"><div><b>The control room sees</b><p>The trail from the last Wi-Fi point or from the surface, with the time of each beacon.</p></div><div><b>What is lost</b><p>Live position between the Wi-Fi points. The trail arrives in chunks.</p></div><div><b>Depends on</b><p>Questions 4, 5 and 15.</p></div></div>
+</div>
+
+<div class="pg">
+<h2>Other kinds of mine</h2>
+<h3>Mine 2: no Wi-Fi at all</h3>
+<div class="dg"><svg viewBox="0 0 680 185" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Calibri, Arial, sans-serif">
+<defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#17181a" stroke-width="1.5"/></marker></defs><rect x="0" y="0" width="288" height="185" fill="#eceded"/>
+<rect x="288" y="0" width="392" height="185" fill="#fff" stroke="#b9bbbe"/>
+<text x="10" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">UNDERGROUND</text>
+<text x="298" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">SURFACE</text>
+<g transform="translate(50,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle r="3.5"/><path d="M-9,-6 A11 11 0 0 0 -9,6 M9,-6 A11 11 0 0 1 9,6 M-13,-9 A16 16 0 0 0 -13,9 M13,-9 A16 16 0 0 1 13,9"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Beacons</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in the tunnel</text></g>
+<g transform="translate(185,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,5 A11 11 0 0 1 11,5 Z M-14,5 H14"/><circle cx="0" cy="-2" r="2.4"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Helmet</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">saves each beacon</text></g>
+<text x="185" y="165" text-anchor="middle" font-size="8.8" fill="#17181a">with the time, no signal here</text>
+<g transform="translate(390,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0,-9 L-6,11 M0,-9 L6,11 M-4,3 H4 M-2.4,-3 H2.4"/><path d="M-9,-8 A9 9 0 0 0 -9,-1 M9,-8 A9 9 0 0 1 9,-1"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Mobile mast</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">at the shaft top</text></g>
+<g transform="translate(510,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Our server</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in South Africa</text></g>
+<g transform="translate(630,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-12" y="-10" width="24" height="15" rx="1.5"/><path d="M0,5 V10 M-6,10 H6"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Control room</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">trail, last place</text></g>
+<line x1="94" y1="110" x2="139" y2="110" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar3)"/>
+<line x1="229" y1="110" x2="344" y2="110" stroke="#17181a" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ar3)"/><text x="286.5" y="102" text-anchor="middle" font-size="8.8" fill="#17181a">sent later, at the shaft</text>
+<line x1="434" y1="110" x2="464" y2="110" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar3)"/><line x1="554" y1="110" x2="584" y2="110" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar3)"/></svg></div>
+<div class="cap"><div><b>The control room sees</b><p>The full trail once the worker reaches signal at the shaft top. If a worker does not come out, only what was sent before the signal was lost.</p></div><div><b>What is lost</b><p>Live position underground. The trail of a missing worker stays on the helmet.</p></div><div><b>Depends on</b><p>Questions 5, 6 and 14.</p></div></div>
+<h3>Mine 3: Wi-Fi all along the tunnels</h3>
+<div class="dg"><svg viewBox="0 0 680 185" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Calibri, Arial, sans-serif">
+<defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#17181a" stroke-width="1.5"/></marker></defs><rect x="0" y="0" width="388" height="185" fill="#eceded"/>
+<rect x="388" y="0" width="292" height="185" fill="#fff" stroke="#b9bbbe"/>
+<text x="10" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">UNDERGROUND</text>
+<text x="398" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">SURFACE</text>
+<g transform="translate(50,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle r="3.5"/><path d="M-9,-6 A11 11 0 0 0 -9,6 M9,-6 A11 11 0 0 1 9,6 M-13,-9 A16 16 0 0 0 -13,9 M13,-9 A16 16 0 0 1 13,9"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Beacons</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in the tunnel</text></g>
+<g transform="translate(185,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,5 A11 11 0 0 1 11,5 Z M-14,5 H14"/><circle cx="0" cy="-2" r="2.4"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Helmet</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">sends as it goes</text></g>
+<g transform="translate(320,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,-3 A15 15 0 0 1 11,-3 M-7,1 A9.5 9.5 0 0 1 7,1"/><circle cx="0" cy="6" r="1.8"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Wi-Fi points</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in the tunnels</text></g>
+<g transform="translate(455,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Our server</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in South Africa</text></g>
+<g transform="translate(590,110)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-12" y="-10" width="24" height="15" rx="1.5"/><path d="M0,5 V10 M-6,10 H6"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Control room</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">live trail, video</text></g>
+<line x1="94" y1="110" x2="139" y2="110" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar4)"/><line x1="229" y1="110" x2="274" y2="110" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar4)"/><line x1="364" y1="110" x2="409" y2="110" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar4)"/><line x1="499" y1="110" x2="544" y2="110" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar4)"/>
+<text x="386" y="98" text-anchor="middle" font-size="8.5" fill="#17181a">live</text></svg></div>
+<div class="cap"><div><b>The control room sees</b><p>A live trail and live video, because the helmet is always connected.</p></div><div><b>What is lost</b><p>Very little. The cost is building and keeping the Wi-Fi.</p></div><div><b>Depends on</b><p>Questions 1, 13 and 15.</p></div></div>
+</div>
+
+<div class="pg">
+<h2>A mine with a face zone</h2>
+<p class="lead">Equipment is kept about 50 m from blasting, so the area at the face has no beacons or Wi-Fi. A helmet that is not seen means unknown, not clear.</p>
+<h3>Mine 4: beacons and Wi-Fi up to the edge of the face zone</h3>
+<div class="dg"><svg viewBox="0 0 680 215" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Calibri, Arial, sans-serif">
+<defs><marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#17181a" stroke-width="1.5"/></marker></defs><rect x="0" y="0" width="422" height="215" fill="#eceded"/>
+<rect x="422" y="0" width="258" height="215" fill="#fff" stroke="#b9bbbe"/>
+<text x="10" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">UNDERGROUND</text>
+<text x="432" y="16" font-size="8.5" letter-spacing="1.4" fill="#8a8e94" font-weight="700">SURFACE</text>
+<rect x="12" y="30" width="170" height="165" rx="4" fill="#fff" stroke="#17181a" stroke-dasharray="6 4"/>
+<text x="97" y="46" text-anchor="middle" font-size="8.5" letter-spacing="1.2" fill="#17181a" font-weight="700">FACE ZONE</text>
+<text x="97" y="58" text-anchor="middle" font-size="8.5" fill="#8a8e94">no beacons or Wi-Fi, about 50 m</text>
+<g transform="translate(97,125)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,5 A11 11 0 0 1 11,5 Z M-14,5 H14"/><circle cx="0" cy="-2" r="2.4"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Helmet</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">saves what it can</text></g>
+<g transform="translate(235,125)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle r="3.5"/><path d="M-9,-6 A11 11 0 0 0 -9,6 M9,-6 A11 11 0 0 1 9,6 M-13,-9 A16 16 0 0 0 -13,9 M13,-9 A16 16 0 0 1 13,9"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Last beacon</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">edge of the zone</text></g>
+<g transform="translate(360,125)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-11,-3 A15 15 0 0 1 11,-3 M-7,1 A9.5 9.5 0 0 1 7,1"/><circle cx="0" cy="6" r="1.8"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Wi-Fi point</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">at the station</text></g>
+<g transform="translate(485,125)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-11" width="22" height="9" rx="1.5"/><rect x="-11" y="2" width="22" height="9" rx="1.5"/><path d="M-7,-6.5 H-3 M-7,6.5 H-3"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Our server</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">in South Africa</text></g>
+<g transform="translate(610,125)">
+  <rect x="-44" y="-37" width="88" height="74" rx="4" fill="#fff" stroke="#b9bbbe"/>
+  <g transform="translate(0,-14)" fill="none" stroke="#17181a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="-12" y="-10" width="24" height="15" rx="1.5"/><path d="M0,5 V10 M-6,10 H6"/></g>
+  <text y="14" text-anchor="middle" font-size="10.5" font-weight="700" fill="#17181a">Control room</text>
+  <text y="27" text-anchor="middle" font-size="9" fill="#8a8e94">trail, last place</text></g>
+<line x1="191" y1="125" x2="139" y2="125" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar5)"/><line x1="279" y1="125" x2="314" y2="125" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar5)"/><line x1="404" y1="125" x2="439" y2="125" stroke="#17181a" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ar5)"/><text x="421.5" y="117" text-anchor="middle" font-size="8.8" fill="#17181a">later</text><line x1="529" y1="125" x2="564" y2="125" stroke="#17181a" stroke-width="1.4" marker-end="url(#ar5)"/></svg></div>
+<div class="cap"><div><b>The control room sees</b><p>The worker last seen at the beacon on the edge of the face zone, then nothing until they walk back. A warning if they enter the zone at blast time.</p></div><div><b>What is lost</b><p>Everything inside the face zone. We know where the worker was last seen, not where they are.</p></div><div><b>Depends on</b><p>Questions 5, 6 and 7.</p></div></div>
+<div class="box dark"><b>Why this matters</b><p>The answers to questions 4 to 7 decide which of these mines the helmet can serve and how much we must add, such as more beacons or more Wi-Fi points.</p></div>
+</div>
+
+<div class="foot"><span>Confidential</span><span>Smart Helmet</span></div>
+</body></html>

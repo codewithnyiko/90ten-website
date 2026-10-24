@@ -1,0 +1,13 @@
+const fs = require('fs');
+let s = fs.readFileSync(__dirname + '/gen_env.cjs', 'utf8');
+const r = (a, b) => { if (!s.includes(a)) console.error('MISSING ' + a.slice(0, 60)); s = s.split(a).join(b); };
+r("'OURS, IN SOUTH AFRICA'", "'CLIENT SERVERS, SOUTH AFRICA'");
+r("'Our live server'", "'Live server'");
+r("'Our data store'", "'Data store'");
+r("'Our screens'", "'Screens'");
+r("'2 Report to our server'", "'2 Report to the client server'");
+r('logs in to our server.', 'logs in to the client server.');
+r('reaches our server at once.', 'reaches the server at once.');
+r('move to our own address server.', 'move to an address server of the client.');
+fs.writeFileSync(__dirname + '/gen_env.cjs', s);
+console.log('ok');
