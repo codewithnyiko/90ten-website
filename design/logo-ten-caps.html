@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>90Ten logo - TEN in caps (mock-up)</title>
+<!--
+  Mock-up only: the real logo PNG with the inside of the circle masked out and "TEN" set in caps over it.
+  Compares a few heavy faces against the current "Ten". Not for production; if one is chosen the logo
+  should be redrawn as proper artwork.
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Jost:wght@800&family=Montserrat:wght@800&display=swap">
+<style>
+  body{margin:0;padding:40px;background:#f4f4f5;font-family:Jost,system-ui,sans-serif;color:#2d2d30}
+  .grid{display:grid;grid-template-columns:repeat(4,300px);gap:28px}
+  figure{margin:0}
+  figcaption{font-size:15px;margin-bottom:8px;color:#6b6b72}
+  .card{background:#fff;border-radius:16px;padding:28px}
+  .card.dark{background:#2d2d30}
+  svg{display:block;width:100%;height:auto}
+</style>
+</head>
+<body>
+<div class="grid" id="g"></div>
+<script>
+  // Inside of the ring in logo pixel space: centre (817,379), inner radius ~288.
+  const V = [
+    { name: 'Current: Ten', orig: true },
+    { name: 'TEN, Archivo Black', font: "'Archivo Black'", weight: 400, size: 232, ls: 0, cap: .72 },
+    { name: 'TEN, Jost 800 (site font)', font: 'Jost', weight: 800, size: 262, ls: 6, cap: .70 },
+    { name: 'TEN, Montserrat 800', font: 'Montserrat', weight: 800, size: 220, ls: 0, cap: .70 },
+  ];
+  const svg = (v, dark) => {
+    const img = dark ? '../wwwroot/img/logo-dark.png' : '../wwwroot/img/logo.png';
+    const fill = dark ? '#fff' : '#3a3a3d';
+    const id = 'm' + Math.random().toString(36).slice(2);
+    if (v.orig) return `<svg viewBox="0 0 1200 1055"><image href="${img}" width="1200" height="1055"/></svg>`;
+    return `<svg viewBox="0 0 1200 1055">
+      <mask id="${id}"><rect width="1200" height="1055" fill="#fff"/><circle cx="817" cy="379" r="284" fill="#000"/></mask>
+      <image href="${img}" width="1200" height="1055" mask="url(#${id})"/>
+      <text x="817" y="${380 + v.size * v.cap / 2}" text-anchor="middle" fill="${fill}"
+        font-family="${v.font}" font-weight="${v.weight}" font-size="${v.size}" letter-spacing="${v.ls}">TEN</text>
+    </svg>`;
+  };
+  document.getElementById('g').innerHTML =
+    V.map(v => `<figure><figcaption>${v.name}</figcaption><div class="card">${svg(v, false)}</div></figure>`).join('') +
+    V.map(v => `<figure><figcaption>${v.name}, on dark</figcaption><div class="card dark">${svg(v, true)}</div></figure>`).join('');
+</script>
+</body>
+</html>
